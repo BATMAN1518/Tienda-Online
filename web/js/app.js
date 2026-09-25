@@ -12,6 +12,9 @@
   window.__nomadaInit = true;
 
   var PRODUCTOS = window.NOMADA_PRODUCTOS || [];
+  var CFG = window.NOMADA_CONFIG || {};
+  var MARCA = CFG.marca || 'NÓMADA';
+  var ENVIO_GRATIS = typeof CFG.envioGratisDesde === 'number' ? CFG.envioGratisDesde : 50;
   var CLAVE_CARRITO = 'nomada-carrito-v1';
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -19,7 +22,7 @@
   function $(sel, ctx) { return (ctx || document).querySelector(sel); }
   function $$(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
   function euros(n) {
-    return n.toLocaleString('es-ES', { style: 'currency', currency: 'EUR', minimumFractionDigits: n % 1 ? 2 : 0 });
+    return n.toLocaleString(CFG.idioma || 'es-ES', { style: 'currency', currency: CFG.moneda || 'EUR', minimumFractionDigits: n % 1 ? 2 : 0 });
   }
   function porId(id) { return PRODUCTOS.filter(function (p) { return p.id === id; })[0]; }
   function varianteDe(varId) {
@@ -78,14 +81,15 @@
 
     var anuncio = document.createElement('div');
     anuncio.className = 'anuncio';
-    anuncio.innerHTML = '<div class="anuncio__pista"><span>Envío gratis desde 50 €</span><span>Devolución 30 días</span><span>Pago 100 % seguro</span><span>Envío gratis desde 50 €</span><span>Devolución 30 días</span><span>Pago 100 % seguro</span></div>';
+    var anuncios = (CFG.anuncios || []).map(function (t) { return '<span>' + t + '</span>'; }).join('');
+    anuncio.innerHTML = '<div class="anuncio__pista">' + anuncios + anuncios + '</div>';
 
     var header = document.createElement('header');
     header.className = 'cabecera';
     header.innerHTML =
       '<div class="contenedor cabecera__fila">' +
         '<button class="cabecera__menu" aria-label="Abrir menú" aria-expanded="false">' + ICONOS.menu + '</button>' +
-        '<a class="logo" href="index.html" aria-label="NÓMADA, inicio">NÓMADA<span>.</span></a>' +
+        '<a class="logo" href="index.html" aria-label="' + MARCA + ', inicio">' + MARCA + '<span>.</span></a>' +
         '<nav class="cabecera__nav" aria-label="Productos"><a href="index.html#productos"' + (pagina === 'inicio' ? ' aria-current="page"' : '') + '>Tienda</a>' + links + '</nav>' +
         '<button class="cabecera__carrito" aria-label="Abrir carrito">' + ICONOS.bolsa + '<span class="burbuja" data-cuenta>0</span></button>' +
       '</div>';
@@ -97,12 +101,12 @@
     footer.className = 'pie';
     footer.innerHTML =
       '<div class="contenedor pie__grid">' +
-        '<div><a class="logo" href="index.html">NÓMADA<span>.</span></a><p class="pie__txt">Cuatro objetos bien hechos para tu día a día. Diseñados para durar, no para llenar cajones.</p></div>' +
+        '<div><a class="logo" href="index.html">' + MARCA + '<span>.</span></a><p class="pie__txt">' + (CFG.lemaPie || '') + '</p></div>' +
         '<div><h4>Productos</h4>' + PRODUCTOS.map(function (p) { return '<a href="' + p.url + '">' + p.nombre + '</a>'; }).join('') + '</div>' +
-        '<div><h4>Ayuda</h4><a href="#" data-legal="envios">Envíos y devoluciones</a><a href="#" data-legal="privacidad">Privacidad</a><a href="#" data-legal="terminos">Términos y condiciones</a></div>' +
-        '<div><h4>Contacto</h4><a href="mailto:hola@nomada.shop">hola@nomada.shop</a><p class="pie__txt">L–V · 9:00–18:00</p></div>' +
+        '<div><h4>Ayuda</h4>' + Object.keys(CFG.legales || {}).map(function (k) { return '<a href="#" data-legal="' + k + '">' + CFG.legales[k].titulo + '</a>'; }).join('') + '</div>' +
+        '<div><h4>Contacto</h4>' + (CFG.contacto ? '<a href="mailto:' + CFG.contacto.email + '">' + CFG.contacto.email + '</a><p class="pie__txt">' + CFG.contacto.horario + '</p>' : '') + '</div>' +
       '</div>' +
-      '<div class="contenedor pie__base"><span>© ' + new Date().getFullYear() + ' NÓMADA</span><span>Visa · Mastercard · PayPal · Bizum</span></div>';
+      '<div class="contenedor pie__base"><span>© ' + new Date().getFullYear() + ' ' + MARCA + '</span><span>' + (CFG.metodosPago || '') + '</span></div>';
     document.body.appendChild(footer);
 
     var cajon = document.createElement('div');
@@ -141,7 +145,8 @@
     });
     $('[data-pagar]').addEventListener('click', function () {
       if (!leerCarrito().length) return;
-      abrirModal('<h3>¡Casi listo! 🎉</h3><p>Esta es una tienda de demostración, así que aquí iría la pasarela de pago (Shopify, Stripe, PayPal…).</p><p>Tu carrito se guarda en este navegador.</p><button class="boton" data-cerrar-modal>Seguir mirando</button>');
+      if (CFG.urlPago) { window.location.href = CFG.urlPago; return; }
+      abrirModal((CFG.avisoPagoDemo || '') + '<button class="boton" data-cerrar-modal>Seguir mirando</button>');
     });
     modal.addEventListener('click', function (e) {
       if (e.target === modal || e.target.closest('[data-cerrar-modal]')) cerrarModal();
@@ -149,12 +154,8 @@
     $$('[data-legal]').forEach(function (a) {
       a.addEventListener('click', function (e) {
         e.preventDefault();
-        var t = {
-          envios: '<h3>Envíos y devoluciones</h3><p>Envío en 24/48 h a península. Gratis a partir de 50 €. Tienes 30 días para devolver cualquier producto sin usar.</p>',
-          privacidad: '<h3>Privacidad</h3><p>Solo usamos tus datos para gestionar tu pedido. No los compartimos con terceros con fines comerciales.</p>',
-          terminos: '<h3>Términos y condiciones</h3><p>Precios con IVA incluido. Garantía legal de 3 años en todos los productos.</p>'
-        };
-        abrirModal(t[a.getAttribute('data-legal')] + '<button class="boton" data-cerrar-modal>Entendido</button>');
+        var l = CFG.legales[a.getAttribute('data-legal')];
+        abrirModal('<h3>' + l.titulo + '</h3>' + l.html + '<button class="boton" data-cerrar-modal>Entendido</button>');
       });
     });
     // cabecera con sombra al hacer scroll
@@ -193,10 +194,13 @@
     if (!lineas) return;
     lineas.innerHTML = html || '<div class="cajon__vacio"><p>Tu carrito está vacío.</p><a class="boton" href="index.html#productos">Ver productos</a></div>';
     $('[data-subtotal]').textContent = euros(subtotal);
-    var falta = 50 - subtotal;
-    var pct = Math.min(100, subtotal / 50 * 100);
-    $('[data-envio]').innerHTML = (subtotal === 0 ? 'Envío gratis a partir de 50 €' : falta > 0 ? 'Te faltan <strong>' + euros(falta) + '</strong> para el envío gratis' : '🎉 ¡Tienes envío gratis!') +
-      '<div class="barra"><i style="transform:scaleX(' + (pct / 100) + ')"></i></div>';
+    var envio = $('[data-envio]');
+    if (ENVIO_GRATIS > 0) {
+      var falta = ENVIO_GRATIS - subtotal;
+      var pct = Math.min(100, subtotal / ENVIO_GRATIS * 100);
+      envio.innerHTML = (subtotal === 0 ? 'Envío gratis a partir de ' + euros(ENVIO_GRATIS) : falta > 0 ? 'Te faltan <strong>' + euros(falta) + '</strong> para el envío gratis' : '🎉 ¡Tienes envío gratis!') +
+        '<div class="barra"><i style="transform:scaleX(' + (pct / 100) + ')"></i></div>';
+    } else { envio.style.display = 'none'; }
     $('[data-pagar]').disabled = !c.length;
     $$('[data-menos]', lineas).forEach(function (b) { b.addEventListener('click', function () { cambiarCantidad(b.getAttribute('data-menos'), -1); }); });
     $$('[data-mas]', lineas).forEach(function (b) { b.addEventListener('click', function () { cambiarCantidad(b.getAttribute('data-mas'), 1); }); });
@@ -253,7 +257,7 @@
         opciones +
         '<div class="compra__fila"><div class="cantidad cantidad--grande"><button type="button" aria-label="Quitar uno" data-q="-1">−</button><span data-q-valor>1</span><button type="button" aria-label="Añadir uno" data-q="1">+</button></div>' +
         '<button type="button" class="boton boton--bloque" data-anadir>Añadir al carrito</button></div>' +
-        '<ul class="confianza"><li>' + ICONOS.camion + 'Envío 24/48 h</li><li>' + ICONOS.vuelta + '30 días de devolución</li><li>' + ICONOS.escudo + 'Garantía 3 años</li><li>' + ICONOS.candado + 'Pago seguro</li></ul>' +
+        '<ul class="confianza">' + (CFG.confianza || []).map(function (c) { return '<li>' + (ICONOS[c.icono] || '') + c.texto + '</li>'; }).join('') + '</ul>' +
         extra +
       '</div>';
 
