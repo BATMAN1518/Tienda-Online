@@ -113,12 +113,11 @@ Checklist antes de dar algo por terminado:
 
 ## Publicación
 
-GitHub Pages sirve este repositorio desde la rama `arena/01a0d907-tienda-online`
-(carpeta raíz). Cada `git push` a esa rama se publica solo en ~1 minuto:
+GitHub Pages sirve la **raíz** del repositorio desde la rama `main`
+(Settings → Pages → Deploy from a branch → `main` / `(root)`). La raíz tiene
+`index.html` (redirige a `web/`) y `.nojekyll`. Cada `git push` a `main` se
+publica solo en ~1 minuto en:
 **https://batman1518.github.io/Tienda-Online/**
-
-Si se fusiona a `main` y se quiere publicar desde ahí: Settings → Pages →
-Branch: `main` / `(root)`.
 
 ## Pendientes (ver también web/ESTADO.md)
 

@@ -8,7 +8,7 @@ revisión en 16:9 y móvil, fotos con guion individual).
 - **Fase:** construcción completa + auto-revisión en 1600×900 y 390×844 ✅
 - **Datos de productos:** `web/js/productos.js` (precios, variantes, fotos, colores)
 - **Configuración de marca:** `web/js/config.js` (nombre, moneda, envío gratis, anuncios, pie, legales, URL de pago)
-- **Publicado:** https://batman1518.github.io/Tienda-Online/ (GitHub Pages, rama `arena/01a0d907-tienda-online`)
+- **Publicado:** https://batman1518.github.io/Tienda-Online/ (GitHub Pages desde `main` / raíz; activar en Settings → Pages)
 - **Guía técnica para Claude Code:** `CLAUDE.md` en la raíz
 
 ## Páginas y paletas
