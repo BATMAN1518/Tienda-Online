@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Glaciar Térmica · Botella de acero 24 h frío · NÓMADA</title>
+  <meta name="description" content="Botella térmica Glaciar de acero inoxidable con doble pared al vacío: 24 horas frío, 12 horas caliente. Sin plásticos.">
+  <meta name="theme-color" content="#e6f4fa">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%231aa6c9'/><path d='M32 12l4 8h-8zM32 52l-4-8h8zM12 32l8-4v8zM52 32l-8 4v-8z' fill='white'/><circle cx='32' cy='32' r='7' fill='white'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/tema-glaciar.css">
+</head>
+<body data-pagina="glaciar">
+  <main>
+    <!-- Héroe: arco helado con burbujas y sellos de temperatura -->
+    <section class="bloque gl-heroe">
+      <div class="gl-burbujas" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="contenedor gl-heroe__grid">
+        <div>
+          <span class="eyebrow rv">Glaciar Térmica · Hidratación</span>
+          <h1 class="rv">Frío <span>24&nbsp;h.</span><br>Calor <span class="gl-calor">12&nbsp;h.</span></h1>
+          <p class="gl-lead rv">Acero inoxidable con doble pared al vacío. Tu agua sale como la metiste: helada en agosto, caliente en enero.</p>
+          <div class="gl-heroe__cta rv">
+            <a href="#comprar" class="boton" data-ir-compra>Comprar · desde 29 €</a>
+            <span class="gl-sello">🌱 Sin BPA · Sin plásticos</span>
+          </div>
+        </div>
+        <div class="gl-arco rv">
+          <img src="img/glaciar-1.jpg" alt="Botella Glaciar azul hielo con tapón de acero" data-parallax="0.04">
+          <span class="gl-chip gl-chip--frio">❄ 4 °C <small>tras 24 h</small></span>
+          <span class="gl-chip gl-chip--calor">☕ 68 °C <small>tras 12 h</small></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bloque de compra -->
+    <section class="bloque gl-compra" id="comprar">
+      <div class="contenedor ficha" data-comprar="glaciar">
+        <div class="detalles">
+          <details open><summary>Descripción</summary><div><p>Glaciar es una botella de acero inoxidable 18/8 con doble pared al vacío y tapón hermético con asa. No suda, no gotea y no guarda sabores: puedes pasar del café al agua sin notar nada.</p></div></details>
+          <details><summary>Materiales y cuidado</summary><div><ul><li>Acero inoxidable 18/8 de grado alimentario</li><li>Pintura en polvo antideslizante</li><li>Lavar a mano con agua templada</li></ul></div></details>
+          <details><summary>Medidas</summary><div><ul><li>500 ml: 22 cm · 320 g</li><li>750 ml: 26 cm · 390 g</li><li>1 litro: 30 cm · 480 g</li></ul></div></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparador de temperatura (sin JS, con botones de radio) -->
+    <section class="bloque gl-comparador">
+      <div class="contenedor">
+        <div class="centro"><span class="eyebrow rv">La prueba</span><h2 class="titulo-seccion rv">Glaciar contra una botella normal</h2></div>
+        <div class="gl-comp rv">
+          <input type="radio" name="modo" id="modo-frio" checked>
+          <input type="radio" name="modo" id="modo-calor">
+          <div class="gl-comp__tabs" role="group" aria-label="Elegir comparación">
+            <label for="modo-frio">❄ Bebida fría</label>
+            <label for="modo-calor">☕ Bebida caliente</label>
+          </div>
+          <div class="gl-comp__filas">
+            <div class="gl-comp__fila">
+              <span class="gl-comp__nombre">Glaciar</span>
+              <div class="gl-comp__barra gl-comp__barra--glaciar"><i></i></div>
+              <strong><span class="solo-frio">24 h</span><span class="solo-calor">12 h</span></strong>
+            </div>
+            <div class="gl-comp__fila">
+              <span class="gl-comp__nombre">Botella de plástico</span>
+              <div class="gl-comp__barra gl-comp__barra--otra"><i></i></div>
+              <strong><span class="solo-frio">1 h</span><span class="solo-calor">30 min</span></strong>
+            </div>
+            <div class="gl-comp__fila">
+              <span class="gl-comp__nombre">Botella de aluminio</span>
+              <div class="gl-comp__barra gl-comp__barra--alu"><i></i></div>
+              <strong><span class="solo-frio">3 h</span><span class="solo-calor">1 h</span></strong>
+            </div>
+          </div>
+          <p class="gl-comp__nota">Horas que la bebida se mantiene por debajo de 10 °C (fría) o por encima de 60 °C (caliente) a 25 °C de temperatura ambiente.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Acordeón con imagen viva -->
+    <section class="bloque" data-acordeon>
+      <div class="contenedor gl-acordeon">
+        <div class="gl-acordeon__img rv"><img data-acordeon-img src="img/glaciar-2.jpg" alt="Botella Glaciar en uso"></div>
+        <div>
+          <span class="eyebrow rv">Diseñada al milímetro</span>
+          <h2 class="titulo-seccion rv">Todo lo que no ves</h2>
+          <div class="gl-items rv">
+            <div class="gl-item abierto" data-acordeon-item data-img="img/glaciar-2.jpg">
+              <button aria-expanded="true"><span>01</span> Aguanta lo que le eches</button>
+              <div><p>Acero 18/8 y pintura en polvo que no se raya. Llévala a la montaña, al gimnasio o déjala caer: seguirá como el primer día.</p></div>
+            </div>
+            <div class="gl-item" data-acordeon-item data-img="img/glaciar-3.jpg">
+              <button aria-expanded="false"><span>02</span> Boca ancha para el hielo</button>
+              <div><p>Caben cubitos enteros y se limpia con la mano. Nada de cepillos raros ni olores atrapados.</p></div>
+            </div>
+            <div class="gl-item" data-acordeon-item data-img="img/glaciar-1.jpg">
+              <button aria-expanded="false"><span>03</span> Tapón hermético con asa</button>
+              <div><p>Rosca de acero con junta de silicona. Métela en la mochila tumbada: no cae ni una gota.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impacto con contador -->
+    <section class="bloque gl-impacto">
+      <div class="contenedor centro">
+        <span class="eyebrow rv">Tu impacto</span>
+        <p class="gl-impacto__num rv"><span data-count="156">156</span></p>
+        <h2 class="rv">botellas de plástico menos al año</h2>
+        <p class="rv gl-impacto__txt">Es lo que evita, de media, una sola persona que cambia a Glaciar. Multiplícalo por toda tu familia.</p>
+      </div>
+    </section>
+
+    <!-- Reseñas -->
+    <section class="bloque" id="resenas">
+      <div class="contenedor">
+        <div class="cabecera-seccion"><div><span class="eyebrow rv">★ 4,9 · 860 opiniones</span><h2 class="titulo-seccion rv">Probada en el mundo real</h2></div></div>
+        <div class="resenas">
+          <article class="resena rv"><div class="estrellas">★★★★★</div><p>“Hielo por la mañana, hielo por la noche. Y eso que la dejé al sol en la playa.”</p><footer><span class="avatar">C</span><div>Carla V.<small>750 ml</small></div></footer></article>
+          <article class="resena rv"><div class="estrellas">★★★★★</div><p>“Me llevo el café a la obra a las 6 y a mediodía sigue quemando. Brutal.”</p><footer><span class="avatar">R</span><div>Rubén T.<small>1 litro</small></div></footer></article>
+          <article class="resena rv"><div class="estrellas">★★★★★</div><p>“El color es precioso en persona y no suda nada en la mochila del cole.”</p><footer><span class="avatar">N</span><div>Nuria B.<small>500 ml</small></div></footer></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preguntas -->
+    <section class="bloque bloque--denso gl-faq">
+      <div class="contenedor">
+        <div class="centro"><span class="eyebrow rv">Dudas</span><h2 class="titulo-seccion rv">Preguntas frecuentes</h2></div>
+        <div class="faq rv">
+          <details><summary>¿Se puede meter en el lavavajillas?</summary><p>Recomendamos lavarla a mano para que la pintura dure años. El tapón sí puede ir al lavavajillas.</p></details>
+          <details><summary>¿Puedo meter bebidas con gas?</summary><p>Sí, el tapón hermético aguanta bebidas con gas sin problema.</p></details>
+          <details><summary>¿Deja sabor metálico?</summary><p>No. El acero 18/8 no transmite sabores ni olores.</p></details>
+          <details><summary>¿Qué tamaño me recomendáis?</summary><p>500 ml para el bolso, 750 ml para el día a día y 1 litro para deporte o excursiones.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Relacionados -->
+    <section class="bloque gl-relacionados">
+      <div class="contenedor">
+        <h2 class="titulo-seccion rv" style="margin-bottom:36px">Descubre los otros mundos</h2>
+        <div class="rejilla rejilla--3" data-relacionados="glaciar"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/productos.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
