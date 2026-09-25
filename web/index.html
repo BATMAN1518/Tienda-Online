@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NÓMADA · Cuatro objetos, cuatro mundos</title>
+  <meta name="description" content="Auriculares Pulse, botella Glaciar, vela Ámbar y mochila Ruta. Cuatro objetos bien hechos para tu día a día.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23161616'/><text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='40' fill='%23f4f1ec'>N</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/tema-inicio.css">
+</head>
+<body data-pagina="inicio">
+
+  <main>
+    <!-- 1 · Héroe editorial tipográfico + mosaico de los 4 productos -->
+    <section class="bloque heroe-inicio">
+      <div class="contenedor heroe-inicio__grid">
+        <div class="heroe-inicio__texto">
+          <span class="eyebrow rv">Colección 2026</span>
+          <h1 class="rv">Cuatro objetos.<br><em>Cuatro mundos.</em></h1>
+          <p class="rv">Sonido, agua, luz y camino. Hemos elegido solo cuatro productos y los hemos hecho tan bien como sabemos. Cada uno con su carácter, su color y su página.</p>
+          <div class="heroe-inicio__cta rv">
+            <a class="boton" href="#productos">Ver los productos</a>
+            <a class="enlace-flecha" href="#mundos">Elige tu mundo →</a>
+          </div>
+        </div>
+        <div class="mosaico" aria-hidden="true">
+          <a href="producto-pulse.html" class="mosaico__pieza m1" style="--c:#0d0b1a"><img src="img/pulse-1.jpg" alt=""></a>
+          <a href="producto-glaciar.html" class="mosaico__pieza m2" style="--c:#e6f4fa"><img src="img/glaciar-1.jpg" alt=""></a>
+          <a href="producto-ambar.html" class="mosaico__pieza m3" style="--c:#f3e9dc"><img src="img/ambar-1.jpg" alt=""></a>
+          <a href="producto-ruta.html" class="mosaico__pieza m4" style="--c:#1f2a1c"><img src="img/ruta-1.jpg" alt=""></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 · Marquesina de beneficios (costura deliberada con el héroe) -->
+    <section class="franja-marquesina" aria-label="Ventajas">
+      <div class="marquesina" style="--vel:34s">
+        <div class="marquesina__pista">
+          <span>Envío 24/48 h</span><span>✦</span><span>Garantía 3 años</span><span>✦</span><span>30 días para devolver</span><span>✦</span><span>Materiales que duran</span><span>✦</span><span>Pago seguro</span><span>✦</span>
+          <span>Envío 24/48 h</span><span>✦</span><span>Garantía 3 años</span><span>✦</span><span>30 días para devolver</span><span>✦</span><span>Materiales que duran</span><span>✦</span><span>Pago seguro</span><span>✦</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · Todos los productos -->
+    <section class="bloque" id="productos">
+      <div class="contenedor">
+        <div class="cabecera-seccion">
+          <div>
+            <span class="eyebrow rv">La tienda</span>
+            <h2 class="titulo-seccion rv">Todos los productos</h2>
+          </div>
+          <p class="rv">Pasa el ratón por encima para ver cada producto en su ambiente. Entra en cualquiera para descubrir su página.</p>
+        </div>
+        <div class="rejilla" data-grid-productos></div>
+      </div>
+    </section>
+
+    <!-- 4 · Paneles que se expanden: un mundo por producto -->
+    <section class="bloque mundos" id="mundos">
+      <div class="contenedor">
+        <div class="centro">
+          <span class="eyebrow rv">Elige tu mundo</span>
+          <h2 class="titulo-seccion rv">Cada producto tiene su propio universo</h2>
+        </div>
+        <div class="paneles rv">
+          <a class="panel" href="producto-pulse.html" style="--p-bg:#0d0b1a;--p-ac:#8b5cf6">
+            <img src="img/pulse-2.jpg" alt="Persona escuchando música con los auriculares Pulse">
+            <div class="panel__txt"><span>01 · Sonido</span><h3>Pulse</h3><p>Silencio a la carta, noche de neón.</p></div>
+          </a>
+          <a class="panel" href="producto-glaciar.html" style="--p-bg:#0b3b52;--p-ac:#1aa6c9">
+            <img src="img/glaciar-2.jpg" alt="Botella Glaciar junto a un lago de montaña">
+            <div class="panel__txt"><span>02 · Agua</span><h3>Glaciar</h3><p>Frío de montaña, dentro de tu bolso.</p></div>
+          </a>
+          <a class="panel" href="producto-ambar.html" style="--p-bg:#3b2418;--p-ac:#d9774f">
+            <img src="img/ambar-2.jpg" alt="Vela Ámbar encendida en una mesilla">
+            <div class="panel__txt"><span>03 · Luz</span><h3>Ámbar</h3><p>Tu casa, a media luz.</p></div>
+          </a>
+          <a class="panel" href="producto-ruta.html" style="--p-bg:#1f2a1c;--p-ac:#ff6b1a">
+            <img src="img/ruta-1.jpg" alt="Mochila Ruta 24L">
+            <div class="panel__txt"><span>04 · Camino</span><h3>Ruta</h3><p>De la oficina al monte.</p></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · Lista editorial numerada -->
+    <section class="bloque porque">
+      <div class="contenedor porque__grid">
+        <div>
+          <span class="eyebrow rv">Por qué NÓMADA</span>
+          <h2 class="titulo-seccion rv">Menos cosas.<br><em>Mejores cosas.</em></h2>
+        </div>
+        <ol class="lista-num">
+          <li class="rv"><span>01</span><div><h3>Solo cuatro productos</h3><p>No tenemos 400 referencias. Tenemos cuatro, y cada una ha pasado meses de pruebas antes de llegar aquí.</p></div></li>
+          <li class="rv"><span>02</span><div><h3>Hechos para durar</h3><p>Acero, algodón encerado, cerámica y tejidos reciclados. Garantía de 3 años en todo.</p></div></li>
+          <li class="rv"><span>03</span><div><h3>Sin letra pequeña</h3><p>Envío en 24/48 h, 30 días para devolver y atención de personas reales.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 6 · Cifras con contador -->
+    <section class="bloque bloque--denso cifras">
+      <div class="contenedor cifras__grid">
+        <div class="rv"><strong><span data-count="3040">3040</span>+</strong><span>clientes felices</span></div>
+        <div class="rv"><strong><span data-count="4.8">4,8</span>★</strong><span>valoración media</span></div>
+        <div class="rv"><strong><span data-count="3">3</span> años</strong><span>de garantía</span></div>
+        <div class="rv"><strong><span data-count="48">48</span> h</strong><span>máximo de entrega</span></div>
+      </div>
+    </section>
+
+    <!-- 7 · Reseñas -->
+    <section class="bloque">
+      <div class="contenedor">
+        <div class="centro"><span class="eyebrow rv">Opiniones</span><h2 class="titulo-seccion rv">Lo que dicen de nosotros</h2></div>
+        <div class="resenas" style="margin-top:44px">
+          <article class="resena rv"><div class="estrellas">★★★★★</div><p>“Los Pulse me han cambiado el tren de cada mañana. Me pongo música y desaparece el mundo.”</p><footer><span class="avatar">L</span><div>Lucía M.<small>Compró Pulse ANC</small></div></footer></article>
+          <article class="resena rv"><div class="estrellas">★★★★★</div><p>“Dejé la Glaciar en el coche en agosto con hielo por la mañana. Por la tarde seguía habiendo hielo.”</p><footer><span class="avatar">J</span><div>Javier R.<small>Compró Glaciar 750 ml</small></div></footer></article>
+          <article class="resena rv"><div class="estrellas">★★★★★</div><p>“La vela huele a hogar de verdad, no a ambientador. Y el vaso lo reutilizo como maceta.”</p><footer><span class="avatar">M</span><div>Marta G.<small>Compró Vela Ámbar</small></div></footer></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 · Cierre: boletín -->
+    <section class="bloque cierre">
+      <div class="contenedor cierre__caja rv">
+        <h2>Un 10 % en tu primer pedido</h2>
+        <p>Apúntate y te avisamos de novedades. Sin spam, prometido.</p>
+        <form class="boletin" data-newsletter>
+          <label class="sr" for="email">Tu correo</label>
+          <input id="email" type="email" required placeholder="tu@correo.com">
+          <button class="boton" type="submit">Quiero mi 10 %</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/productos.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

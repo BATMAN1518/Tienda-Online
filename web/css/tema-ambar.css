@@ -1,0 +1,79 @@
+/* Ámbar · lujo tranquilo: crema cálida, terracota y marrón tostado; serif editorial */
+:root {
+  --bg: #f3e9dc;
+  --fg: #3b2418;
+  --ac: #b5532f;
+  --ac-fg: #fff8f0;
+  --card: #fbf5ee;
+  --line: rgba(59, 36, 24, .14);
+  --muted: #7a5c4b;
+  --f-body: 'Jost', system-ui, sans-serif;
+  --f-display: 'Cormorant Garamond', Georgia, serif;
+  --radius: 4px;
+  --estrellas: #b5532f;
+  --pie-bg: #2a1810;
+  --pie-fg: #f3e9dc;
+}
+h1, h2, h3 { font-weight: 500; letter-spacing: -0.01em; }
+em { font-style: italic; color: var(--ac); }
+.eyebrow { letter-spacing: .3em; font-weight: 500; }
+.anuncio { background: #b5532f; color: #fff8f0; }
+.anuncio__pista span::before { content: '❋'; color: #fff8f0; }
+.boton { border-radius: 2px; letter-spacing: .12em; text-transform: uppercase; font-size: 13px; font-weight: 500; padding: 18px 32px; }
+.opcion, .galeria__minis button { border-radius: 2px; }
+.compra__titulo { font-size: clamp(40px, 5vw, 64px); }
+.compra__precio [data-precio] { font-size: 36px; }
+.tarjeta { border-radius: 16px; }
+
+/* héroe */
+.am-heroe { --pad-y: clamp(56px, 8vw, 96px); background: var(--bg); }
+.am-heroe h1 { font-size: clamp(56px, 8vw, 124px); line-height: .92; margin: 8px 0 24px; }
+.am-lead { font-size: 18px; color: var(--muted); max-width: 52ch; margin: 0 auto 32px; font-weight: 300; }
+.am-heroe__foto { margin-top: clamp(40px, 6vw, 72px); overflow: hidden; aspect-ratio: 21 / 9; background: #d9c3a8; }
+.am-heroe__foto img { width: 100%; height: 100%; object-fit: cover; object-position: 30% 55%; animation: zoomout 2.4s var(--ease) both; }
+@keyframes zoomout { from { transform: scale(1.15); } to { transform: scale(1); } }
+
+.am-compra { background: var(--card); }
+
+/* notas */
+.am-notas__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 88px); align-items: center; }
+.am-notas__foto { overflow: hidden; aspect-ratio: 4 / 5; background: #e8d9c5; }
+.am-notas__foto img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--ease); }
+.am-notas__foto:hover img { transform: scale(1.05); }
+.am-lista { list-style: none; padding: 0; margin: 28px 0 0; }
+.am-lista li { display: grid; grid-template-columns: 70px 1fr; gap: 16px; padding: 24px 0; border-top: 1px solid var(--line); }
+.am-lista li > span { font-family: var(--f-display); font-style: italic; font-size: 44px; line-height: 1; color: var(--ac); }
+.am-lista h3 { font-size: 30px; margin-bottom: 4px; }
+.am-lista p { color: var(--muted); margin: 0; font-weight: 300; }
+
+/* manifiesto (fondo en el envoltorio: color terracota oscuro bajo la foto) */
+.am-manifiesto { position: relative; overflow: hidden; background: #5a2a17; color: #fff8f0; padding: clamp(110px, 16vw, 200px) 0; }
+.am-manifiesto__fondo { position: absolute; inset: -30% 0; }
+.am-manifiesto__fondo img { width: 100%; height: 100%; object-fit: cover; opacity: .35; filter: sepia(.4) saturate(1.2); }
+.am-manifiesto::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(42,24,16,.6) 80%); }
+.am-manifiesto__txt { position: relative; z-index: 1; }
+.am-manifiesto__txt p { font-family: var(--f-display); font-style: italic; font-size: clamp(34px, 5vw, 68px); line-height: 1.1; max-width: 22ch; margin: 0 auto 24px; }
+.am-manifiesto__txt span { letter-spacing: .25em; text-transform: uppercase; font-size: 12px; opacity: .8; }
+
+/* ritual */
+.am-ritual { background: var(--bg); }
+.am-pasos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 56px; border-top: 1px solid var(--line); }
+.am-paso { padding: 40px 32px 8px; border-right: 1px solid var(--line); }
+.am-paso:last-child { border-right: 0; }
+.am-paso__n { display: grid; place-items: center; width: 64px; height: 64px; border: 1px solid var(--ac); border-radius: 50%; font-family: var(--f-display); font-size: 30px; color: var(--ac); margin-bottom: 24px; transition: background .4s, color .4s; }
+.am-paso:hover .am-paso__n { background: var(--ac); color: var(--ac-fg); }
+.am-paso h3 { font-size: 30px; }
+.am-paso p { color: var(--muted); font-weight: 300; }
+
+.am-resenas { background: var(--card); }
+.resena { border-radius: 4px; background: var(--bg); }
+.resena p { font-family: var(--f-display); font-size: 22px; font-style: italic; line-height: 1.35; }
+.am-relacionados { background: #eadcc9; }
+
+@media (max-width: 990px) {
+  .am-notas__grid { grid-template-columns: 1fr; }
+  .am-notas__foto { aspect-ratio: 1; }
+  .am-heroe__foto { aspect-ratio: 4 / 3; }
+  .am-pasos { grid-template-columns: 1fr; }
+  .am-paso { border-right: 0; border-bottom: 1px solid var(--line); padding: 32px 0; }
+}
