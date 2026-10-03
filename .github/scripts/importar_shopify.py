@@ -134,6 +134,7 @@ def main() -> int:
         etiquetas = producto.get("tags") or []
         resumen.append(
             {
+                "idShopify": producto.get("id"),
                 "titulo": titulo,
                 "handle": handle,
                 "urlShopify": f"{TIENDA}/products/{handle}",
