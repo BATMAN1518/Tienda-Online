@@ -110,12 +110,14 @@ def main() -> int:
         titulo = producto["title"]
         variantes = [
             {
+                "idShopify": v.get("id"),
                 "titulo": v.get("title"),
                 "precio": float(v.get("price") or 0),
                 "precioAntes": float(v["compare_at_price"]) if v.get("compare_at_price") else None,
                 "disponible": bool(v.get("available")),
                 "sku": v.get("sku") or "",
                 "opciones": [v.get("option1"), v.get("option2"), v.get("option3")],
+                "foto": (v.get("featured_image") or {}).get("src"),
             }
             for v in producto.get("variants", [])
         ]
