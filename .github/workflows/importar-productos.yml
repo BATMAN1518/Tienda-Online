@@ -1,0 +1,50 @@
+name: Importar productos de Shopify
+
+# Herramienta temporal: descarga el catálogo publicado en la tienda Shopify
+# del usuario (datos + fotos) y lo deja dentro del repositorio.
+# Se ejecuta solo cuando cambia este flujo o el script de importación.
+on:
+  push:
+    paths:
+      - '.github/workflows/importar-productos.yml'
+      - '.github/scripts/importar_shopify.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: importar-productos
+  cancel-in-progress: false
+
+jobs:
+  importar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Traer el repositorio
+        uses: actions/checkout@v4
+        with:
+          ref: arena/01a0ff5e-tienda-online
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar Pillow
+        run: pip install --quiet pillow
+
+      - name: Descargar catálogo y fotos
+        run: python .github/scripts/importar_shopify.py
+
+      - name: Guardar en el repositorio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A web/img/tienda web/js/catalogo-importado.json
+          if git diff --cached --quiet; then
+            echo "Sin cambios que guardar"
+          else
+            git commit -m "Importar productos y fotos desde la tienda Shopify"
+            git push origin HEAD:arena/01a0ff5e-tienda-online
+          fi
