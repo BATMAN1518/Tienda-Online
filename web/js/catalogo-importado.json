@@ -20,6 +20,7 @@
     ],
     "variantes": [
       {
+        "idShopify": 67619750412397,
         "titulo": "Pink",
         "precio": 12.97,
         "precioAntes": 12.97,
@@ -29,9 +30,11 @@
           "Pink",
           null,
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/S3fed4c28db3f4f51b703c63d243fd7f10.webp?v=1790973287"
       },
       {
+        "idShopify": 67619750445165,
         "titulo": "WHITE",
         "precio": 12.97,
         "precioAntes": 12.97,
@@ -41,9 +44,11 @@
           "WHITE",
           null,
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/S1fd8d32173dd4e3d8a95d0234e53d4c2J.webp?v=1790973288"
       },
       {
+        "idShopify": 67619750477933,
         "titulo": "Orange",
         "precio": 12.97,
         "precioAntes": 12.97,
@@ -53,9 +58,11 @@
           "Orange",
           null,
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/S441b7904723547db932c24fa9155c6dfF.webp?v=1790973287"
       },
       {
+        "idShopify": 67619750510701,
         "titulo": "black",
         "precio": 12.97,
         "precioAntes": 12.97,
@@ -65,7 +72,8 @@
           "black",
           null,
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/Sbd9e73801a1243548e3c3c8e0e66c73bo.webp?v=1790973287"
       }
     ],
     "fotos": [
@@ -139,6 +147,7 @@
     ],
     "variantes": [
       {
+        "idShopify": 67619749757037,
         "titulo": "Gold / Excluding watch box",
         "precio": 8.73,
         "precioAntes": 8.73,
@@ -148,9 +157,11 @@
           "Gold",
           "Excluding watch box",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/Hf6fa514224a644bcafd5507ffb787e4bM.webp?v=1790973277"
       },
       {
+        "idShopify": 67619749789805,
         "titulo": "Silver black / Excluding watch box",
         "precio": 8.73,
         "precioAntes": 8.73,
@@ -160,9 +171,11 @@
           "Silver black",
           "Excluding watch box",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H907b14ea0bec4fb3a1804679ad19850c4.webp?v=1790973277"
       },
       {
+        "idShopify": 67619749822573,
         "titulo": "silver blue / Excluding watch box",
         "precio": 8.73,
         "precioAntes": 8.73,
@@ -172,9 +185,11 @@
           "silver blue",
           "Excluding watch box",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/Hd456f284c8154844809f7c50d3de7bafC.webp?v=1790973277"
       },
       {
+        "idShopify": 67619749855341,
         "titulo": "silvery white / Excluding watch box",
         "precio": 8.73,
         "precioAntes": 8.73,
@@ -184,9 +199,11 @@
           "silvery white",
           "Excluding watch box",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/Haa0cc5ca82484e29b3d81b76cda2dd24J.webp?v=1790973276"
       },
       {
+        "idShopify": 67619749888109,
         "titulo": "Black / Excluding watch box",
         "precio": 8.73,
         "precioAntes": 8.73,
@@ -196,7 +213,8 @@
           "Black",
           "Excluding watch box",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H67d1e766daee4464828be879b4569994m.webp?v=1790973277"
       }
     ],
     "fotos": [
@@ -272,6 +290,7 @@
     ],
     "variantes": [
       {
+        "idShopify": 67619749036141,
         "titulo": "64 GB / Grey / 32h",
         "precio": 46.28,
         "precioAntes": 46.28,
@@ -281,7 +300,8 @@
           "64 GB",
           "Grey",
           "32h"
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/Hdf0f10eba2eb4be083c312c75ab5f81eP.jpg_100x100_c5d37b93-ee44-42af-84a3-86bb1665c1b6.webp?v=1790973244"
       }
     ],
     "fotos": [
@@ -350,6 +370,7 @@
     ],
     "variantes": [
       {
+        "idShopify": 67619749167213,
         "titulo": "60000 mah / White",
         "precio": 19.9,
         "precioAntes": 19.9,
@@ -359,9 +380,11 @@
           "60000 mah",
           "White",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H0c7a8db05c6f4da5a78d6ba2fa39e1248.jpg_100x100_5e84ab92-26cc-418e-b59c-c5a779115bf7.webp?v=1790973255"
       },
       {
+        "idShopify": 67619749232749,
         "titulo": "60000 mah / Pink",
         "precio": 19.9,
         "precioAntes": 19.9,
@@ -371,9 +394,11 @@
           "60000 mah",
           "Pink",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H1505e6453c9c40b7a2f4701d7ef41379Z.jpg_100x100_91a46159-8ddc-49f1-9bec-2e609fd055ee.webp?v=1790973255"
       },
       {
+        "idShopify": 67619749298285,
         "titulo": "60000 mah / Navy Blue",
         "precio": 19.9,
         "precioAntes": 19.9,
@@ -383,9 +408,11 @@
           "60000 mah",
           "Navy Blue",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/Hf374d806142d45cca83734ebf814ed58m.jpg_100x100_e3e83b6e-38d8-4c04-8530-bdf3e3e49342.webp?v=1790973255"
       },
       {
+        "idShopify": 67619749363821,
         "titulo": "60000 mah / Dark gray",
         "precio": 19.9,
         "precioAntes": 19.9,
@@ -395,9 +422,11 @@
           "60000 mah",
           "Dark gray",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/Hf9d043356dda4694a632f72c2c6514d0p.jpg_100x100_bb7e8ca3-f071-47c7-9f01-d1ca3cc9c8a5.webp?v=1790973255"
       },
       {
+        "idShopify": 67619749429357,
         "titulo": "60000 mah / camouflage",
         "precio": 19.9,
         "precioAntes": 19.9,
@@ -407,7 +436,8 @@
           "60000 mah",
           "camouflage",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/Hd33f8952ac8945e4af18290d033afdadT.jpg_100x100_6018920d-91c1-46c8-b668-67457358fb94.webp?v=1790973255"
       }
     ],
     "fotos": [
@@ -479,6 +509,7 @@
     ],
     "variantes": [
       {
+        "idShopify": 67619747496045,
         "titulo": "Pink / 40 oz",
         "precio": 25.0,
         "precioAntes": 25.0,
@@ -488,9 +519,11 @@
           "Pink",
           "40 oz",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H610dbdd1f61f4a9d878cd3848b1002d15.webp?v=1790973168"
       },
       {
+        "idShopify": 67619747528813,
         "titulo": "Deep Blue / 40 oz",
         "precio": 25.0,
         "precioAntes": 25.0,
@@ -500,9 +533,11 @@
           "Deep Blue",
           "40 oz",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H9e34f9224a804850ab0a1a6b08dc201bT.webp?v=1790973168"
       },
       {
+        "idShopify": 67619747561581,
         "titulo": "Black / 40 oz",
         "precio": 25.0,
         "precioAntes": 25.0,
@@ -512,7 +547,8 @@
           "Black",
           "40 oz",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H16fd5c752a50464ebe3f389e178a52a8m.webp?v=1790973168"
       }
     ],
     "fotos": [
@@ -576,6 +612,7 @@
     ],
     "variantes": [
       {
+        "idShopify": 67619744809069,
         "titulo": "Black",
         "precio": 8.5,
         "precioAntes": 8.5,
@@ -585,7 +622,8 @@
           "Black",
           null,
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H564bd8be7159408982766f45671f06fbX.webp?v=1790973016"
       }
     ],
     "fotos": [
@@ -662,6 +700,7 @@
     ],
     "variantes": [
       {
+        "idShopify": 67619747922029,
         "titulo": "mutifulcolor by random design / 36CM",
         "precio": 2.19,
         "precioAntes": 2.19,
@@ -671,9 +710,11 @@
           "mutifulcolor by random design",
           "36CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H6df4b9a0a63a44a39c814beee5261eb1n.webp?v=1790973192"
       },
       {
+        "idShopify": 67619747954797,
         "titulo": "2 / 36CM",
         "precio": 2.19,
         "precioAntes": 2.19,
@@ -683,9 +724,11 @@
           "2",
           "36CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H90e73522d2644b5095fa757ae245530dD.webp?v=1790973191"
       },
       {
+        "idShopify": 67619747987565,
         "titulo": "3 / 36CM",
         "precio": 2.19,
         "precioAntes": 2.19,
@@ -695,9 +738,11 @@
           "3",
           "36CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H67d99d2e0bc24e248852856b10b2e5774.webp?v=1790973191"
       },
       {
+        "idShopify": 67619748020333,
         "titulo": "4 / 36CM",
         "precio": 2.19,
         "precioAntes": 2.19,
@@ -707,9 +752,11 @@
           "4",
           "36CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H4d12516be48d4f4899862bdee422b4f0m.webp?v=1790973192"
       },
       {
+        "idShopify": 67619748053101,
         "titulo": "5 / 36CM",
         "precio": 2.19,
         "precioAntes": 2.19,
@@ -719,9 +766,11 @@
           "5",
           "36CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/Hceaeb824bce4483b8060084ecae6a6b69.webp?v=1790973191"
       },
       {
+        "idShopify": 67619748085869,
         "titulo": "6 / 36CM",
         "precio": 2.19,
         "precioAntes": 2.19,
@@ -731,9 +780,11 @@
           "6",
           "36CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H6a9c1010477b41a3b56cc4fe6d9ec58b2.webp?v=1790973191"
       },
       {
+        "idShopify": 67619748118637,
         "titulo": "7 / 36CM",
         "precio": 2.19,
         "precioAntes": 2.19,
@@ -743,9 +794,11 @@
           "7",
           "36CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H4c824fb2a4ad4615a94b2e68325d3440x.webp?v=1790973192"
       },
       {
+        "idShopify": 67619748151405,
         "titulo": "61 / 36CM",
         "precio": 2.19,
         "precioAntes": 2.19,
@@ -755,9 +808,11 @@
           "61",
           "36CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/Hdf73f4b21ef64be0bb17b617325389169.webp?v=1790973191"
       },
       {
+        "idShopify": 67619748184173,
         "titulo": "9 / 36CM",
         "precio": 2.19,
         "precioAntes": 2.19,
@@ -767,9 +822,11 @@
           "9",
           "36CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H98e754eb883e41feb7ddb61d5b8bbc18M.webp?v=1790973191"
       },
       {
+        "idShopify": 67619748216941,
         "titulo": "10 / 36CM",
         "precio": 2.19,
         "precioAntes": 2.19,
@@ -779,9 +836,11 @@
           "10",
           "36CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H229ce3af6e0c4f54b938ae97aa017750h.webp?v=1790973192"
       },
       {
+        "idShopify": 67619748249709,
         "titulo": "11 / 36CM",
         "precio": 2.19,
         "precioAntes": 2.19,
@@ -791,9 +850,11 @@
           "11",
           "36CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/Hb302ffa36de448daa6053997cb3eb044Y.webp?v=1790973191"
       },
       {
+        "idShopify": 67619748282477,
         "titulo": "12 / 36CM",
         "precio": 2.19,
         "precioAntes": 2.19,
@@ -803,9 +864,11 @@
           "12",
           "36CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H64141433dd634c648c8bd4f9a553d1227.webp?v=1790973192"
       },
       {
+        "idShopify": 67619748315245,
         "titulo": "mutifulcolor by random / 36CM",
         "precio": 2.19,
         "precioAntes": 2.19,
@@ -815,7 +878,8 @@
           "mutifulcolor by random",
           "36CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H9da4f2f69de942e18a871fd354f6ae00f.webp?v=1790973192"
       }
     ],
     "fotos": [
@@ -893,6 +957,7 @@
     ],
     "variantes": [
       {
+        "idShopify": 67619745792109,
         "titulo": "Queen Size Blue / Queen :  60*40*13CM",
         "precio": 9.51,
         "precioAntes": 9.51,
@@ -902,9 +967,11 @@
           "Queen Size Blue",
           "Queen :  60*40*13CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H8e5a47abb18a4fb9a965c1aab4da617eg.webp?v=1790973100"
       },
       {
+        "idShopify": 67619745824877,
         "titulo": "Queen Size Blue / King Size:  65*45*15CM",
         "precio": 9.51,
         "precioAntes": 9.51,
@@ -914,9 +981,11 @@
           "Queen Size Blue",
           "King Size:  65*45*15CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H8e5a47abb18a4fb9a965c1aab4da617eg.webp?v=1790973100"
       },
       {
+        "idShopify": 67619745857645,
         "titulo": "Queen Size White / Queen :  60*40*13CM",
         "precio": 9.51,
         "precioAntes": 9.51,
@@ -926,9 +995,11 @@
           "Queen Size White",
           "Queen :  60*40*13CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/Hb9d8e94d28814c708c2c730b0d23f060p.webp?v=1790973100"
       },
       {
+        "idShopify": 67619745890413,
         "titulo": "Queen Size White / King Size:  65*45*15CM",
         "precio": 9.51,
         "precioAntes": 9.51,
@@ -938,9 +1009,11 @@
           "Queen Size White",
           "King Size:  65*45*15CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/Hb9d8e94d28814c708c2c730b0d23f060p.webp?v=1790973100"
       },
       {
+        "idShopify": 67619745923181,
         "titulo": "Queen Black / Queen :  60*40*13CM",
         "precio": 9.51,
         "precioAntes": 9.51,
@@ -950,9 +1023,11 @@
           "Queen Black",
           "Queen :  60*40*13CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H03548b439ce1446f9b09d64f50d0aca8a.webp?v=1790973100"
       },
       {
+        "idShopify": 67619745955949,
         "titulo": "Queen Black / King Size:  65*45*15CM",
         "precio": 9.51,
         "precioAntes": 9.51,
@@ -962,9 +1037,11 @@
           "Queen Black",
           "King Size:  65*45*15CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H03548b439ce1446f9b09d64f50d0aca8a.webp?v=1790973100"
       },
       {
+        "idShopify": 67619745988717,
         "titulo": "Queen Grey / Queen :  60*40*13CM",
         "precio": 9.51,
         "precioAntes": 9.51,
@@ -974,9 +1051,11 @@
           "Queen Grey",
           "Queen :  60*40*13CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H298a95b82bd64213b461dbed6cfea7e7Y.webp?v=1790973100"
       },
       {
+        "idShopify": 67619746021485,
         "titulo": "Queen Grey / King Size:  65*45*15CM",
         "precio": 9.51,
         "precioAntes": 9.51,
@@ -986,9 +1065,11 @@
           "Queen Grey",
           "King Size:  65*45*15CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H298a95b82bd64213b461dbed6cfea7e7Y.webp?v=1790973100"
       },
       {
+        "idShopify": 67619746054253,
         "titulo": "King Size Grey / Queen :  60*40*13CM",
         "precio": 9.51,
         "precioAntes": 9.51,
@@ -998,9 +1079,11 @@
           "King Size Grey",
           "Queen :  60*40*13CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/Hd959ac3f83d248d397820799a358ec3cE.webp?v=1790973100"
       },
       {
+        "idShopify": 67619746087021,
         "titulo": "King Size Grey / King Size:  65*45*15CM",
         "precio": 9.51,
         "precioAntes": 9.51,
@@ -1010,9 +1093,11 @@
           "King Size Grey",
           "King Size:  65*45*15CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/Hd959ac3f83d248d397820799a358ec3cE.webp?v=1790973100"
       },
       {
+        "idShopify": 67619746119789,
         "titulo": "King White / Queen :  60*40*13CM",
         "precio": 9.51,
         "precioAntes": 9.51,
@@ -1022,9 +1107,11 @@
           "King White",
           "Queen :  60*40*13CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/Heff708957ce14f799d13fe051f786a260.webp?v=1790973100"
       },
       {
+        "idShopify": 67619746152557,
         "titulo": "King White / King Size:  65*45*15CM",
         "precio": 9.51,
         "precioAntes": 9.51,
@@ -1034,9 +1121,11 @@
           "King White",
           "King Size:  65*45*15CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/Heff708957ce14f799d13fe051f786a260.webp?v=1790973100"
       },
       {
+        "idShopify": 67619746185325,
         "titulo": "King Black / Queen :  60*40*13CM",
         "precio": 9.51,
         "precioAntes": 9.51,
@@ -1046,9 +1135,11 @@
           "King Black",
           "Queen :  60*40*13CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H7c98e80622d841d8940dd18497e2f72cH.webp?v=1790973100"
       },
       {
+        "idShopify": 67619746218093,
         "titulo": "King Black / King Size:  65*45*15CM",
         "precio": 9.51,
         "precioAntes": 9.51,
@@ -1058,9 +1149,11 @@
           "King Black",
           "King Size:  65*45*15CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H7c98e80622d841d8940dd18497e2f72cH.webp?v=1790973100"
       },
       {
+        "idShopify": 67619746250861,
         "titulo": "King Blue / Queen :  60*40*13CM",
         "precio": 9.51,
         "precioAntes": 9.51,
@@ -1070,9 +1163,11 @@
           "King Blue",
           "Queen :  60*40*13CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H5939b0f7210d47ef931c924433267dd0f.webp?v=1790973100"
       },
       {
+        "idShopify": 67619746283629,
         "titulo": "King Blue / King Size:  65*45*15CM",
         "precio": 9.51,
         "precioAntes": 9.51,
@@ -1082,7 +1177,8 @@
           "King Blue",
           "King Size:  65*45*15CM",
           null
-        ]
+        ],
+        "foto": "https://cdn.shopify.com/s/files/1/0839/2481/1885/files/H5939b0f7210d47ef931c924433267dd0f.webp?v=1790973100"
       }
     ],
     "fotos": [
