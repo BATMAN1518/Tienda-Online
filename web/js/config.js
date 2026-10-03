@@ -1,45 +1,47 @@
 /* ==========================================================================
-   NÓMADA · Configuración general de la tienda
+   GINESKA · Configuración general de la tienda
    --------------------------------------------------------------------------
    Todo lo que es "de la marca" y aparece en TODAS las páginas vive aquí:
-   nombre, moneda, envío gratis, barra de anuncios, menú, pie y textos legales.
+   nombre, moneda, envío, barra de anuncios, menú, pie y textos legales.
    (Los productos están en js/productos.js)
    ========================================================================== */
-window.NOMADA_CONFIG = {
-  marca: 'NÓMADA',
-  lemaPie: 'Cuatro objetos bien hechos para tu día a día. Diseñados para durar, no para llenar cajones.',
+window.GINESKA_CONFIG = {
+  marca: 'GINESKA',
+  lemaPie: 'Ocho objetos elegidos uno a uno: audio, energía, hidratación, deporte, descanso y algún capricho. Envío gratis y garantía de 30 días.',
 
   // Moneda y formato de precios (Intl.NumberFormat)
   idioma: 'es-ES',
-  moneda: 'EUR',
+  moneda: 'USD',
 
-  // Umbral de envío gratis en la moneda de la tienda (0 = desactivado)
-  envioGratisDesde: 50,
+  // Envío gratis. 0 = ya es gratis siempre (no se muestra la barra del carrito)
+  envioGratisDesde: 0,
 
   // Barra de anuncios superior (se repite en bucle)
-  anuncios: ['Envío gratis desde 50 €', 'Devolución 30 días', 'Pago 100 % seguro'],
+  anuncios: ['Envío gratis', 'Garantía 30 días', 'Pago seguro con Shopify', 'Atención por correo'],
 
   // Filas de confianza bajo el botón de compra (icono: camion | vuelta | escudo | candado)
   confianza: [
-    { icono: 'camion', texto: 'Envío 24/48 h' },
-    { icono: 'vuelta', texto: '30 días de devolución' },
-    { icono: 'escudo', texto: 'Garantía 3 años' },
+    { icono: 'camion', texto: 'Envío gratis' },
+    { icono: 'escudo', texto: 'Garantía 30 días' },
     { icono: 'candado', texto: 'Pago seguro' }
   ],
 
-  contacto: { email: 'hola@nomada.shop', horario: 'L–V · 9:00–18:00' },
-  metodosPago: 'Visa · Mastercard · PayPal · Bizum',
+  contacto: { email: 'contacto@gineska@gmail.com', horario: 'Te respondemos por correo' },
+  metodosPago: 'Shopify Payments · Visa · Mastercard · Apple Pay · PayPal',
+
+  // Tu tienda de Shopify: los productos, los precios y las fotos salen de aquí.
+  tiendaShopify: 'https://w3nt1x-qy.myshopify.com',
 
   // Botón "Finalizar compra" del carrito.
-  // - Si urlPago está vacío, muestra el aviso de tienda de demostración.
-  // - Si pones una URL (Shopify, Stripe Payment Link...), redirige ahí.
+  // - Vacío: el carrito se envía a tu tienda de Shopify (tiendaShopify) ya montado.
+  // - Con una URL (otro checkout, Stripe...): redirige ahí.
   urlPago: '',
-  avisoPagoDemo: '<h3>¡Casi listo! 🎉</h3><p>Esta es una tienda de demostración, así que aquí iría la pasarela de pago (Shopify, Stripe, PayPal…).</p><p>Tu carrito se guarda en este navegador.</p>',
+  avisoPagoDemo: '<h3>Tu carrito, listo para Shopify</h3><p>El botón <strong>Finalizar compra</strong> abre el pago de tu tienda de Shopify con estos mismos productos y cantidades, para que el pedido entre en tu panel como cualquier otro.</p><p>Si prefieres otro sistema de pago, se cambia en <code>web/js/config.js</code>.</p>',
 
   // Textos legales (se abren en una ventana desde el pie)
   legales: {
-    envios: { titulo: 'Envíos y devoluciones', html: '<p>Envío en 24/48 h a península. Gratis a partir de 50 €. Tienes 30 días para devolver cualquier producto sin usar.</p>' },
-    privacidad: { titulo: 'Privacidad', html: '<p>Solo usamos tus datos para gestionar tu pedido. No los compartimos con terceros con fines comerciales.</p>' },
-    terminos: { titulo: 'Términos y condiciones', html: '<p>Precios con IVA incluido. Garantía legal de 3 años en todos los productos.</p>' }
+    envios: { titulo: 'Envíos y garantía', html: '<p>Envío gratis en todos los pedidos. Garantía de 30 días: si algo no va bien, escríbenos y lo solucionamos.</p><p>Los plazos de entrega dependen del destino; se muestran al finalizar la compra.</p>' },
+    privacidad: { titulo: 'Privacidad', html: '<p>Solo usamos tus datos para gestionar tu pedido y responderte. El pago se procesa en Shopify.</p>' },
+    terminos: { titulo: 'Términos y condiciones', html: '<p>Precios en dólares estadounidenses (USD), impuestos incluidos. Las compras se tramitan a través de esta tienda de Shopify.</p>' }
   }
 };

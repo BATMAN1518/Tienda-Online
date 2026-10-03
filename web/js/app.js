@@ -1,5 +1,5 @@
 /* ==========================================================================
-   NÓMADA · Lógica compartida por todas las páginas
+   GINESKA · Lógica compartida por todas las páginas
    - Cabecera, pie y carrito (se inyectan en cada página)
    - Bloque de compra: galería + variantes + añadir al carrito
    - Barra de compra fija, productos relacionados, cuadrícula de la portada
@@ -8,21 +8,22 @@
    Todo en JS sin librerías. Cada init comprueba si su elemento existe.
    ========================================================================== */
 (function () {
-  if (window.__nomadaInit) return;
-  window.__nomadaInit = true;
+  if (window.__gineskaInit) return;
+  window.__gineskaInit = true;
 
-  var PRODUCTOS = window.NOMADA_PRODUCTOS || [];
-  var CFG = window.NOMADA_CONFIG || {};
-  var MARCA = CFG.marca || 'NÓMADA';
+  var PRODUCTOS = window.GINESKA_PRODUCTOS || [];
+  var CFG = window.GINESKA_CONFIG || {};
+  var MARCA = CFG.marca || 'GINESKA';
   var ENVIO_GRATIS = typeof CFG.envioGratisDesde === 'number' ? CFG.envioGratisDesde : 50;
-  var CLAVE_CARRITO = 'nomada-carrito-v1';
+  var CLAVE_CARRITO = 'gineska-carrito-v1';
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- utilidades ---------- */
   function $(sel, ctx) { return (ctx || document).querySelector(sel); }
   function $$(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
-  function euros(n) {
-    return n.toLocaleString(CFG.idioma || 'es-ES', { style: 'currency', currency: CFG.moneda || 'EUR', minimumFractionDigits: n % 1 ? 2 : 0 });
+  // Precios con dos decimales siempre (los precios de la tienda son 12,97 · 8,73 …)
+  function precio(n) {
+    return n.toLocaleString(CFG.idioma || 'es-ES', { style: 'currency', currency: CFG.moneda || 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
   function porId(id) { return PRODUCTOS.filter(function (p) { return p.id === id; })[0]; }
   function varianteDe(varId) {
@@ -48,7 +49,7 @@
     menu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>',
     flecha: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>'
   };
-  window.NOMADA_ICONOS = ICONOS;
+  window.GINESKA_ICONOS = ICONOS;
 
   /* ---------- carrito (localStorage) ---------- */
   function leerCarrito() {
@@ -76,7 +77,7 @@
   function initShell() {
     var pagina = document.body.getAttribute('data-pagina') || '';
     var links = PRODUCTOS.map(function (p) {
-      return '<a href="' + p.url + '"' + (pagina === p.id ? ' aria-current="page"' : '') + '>' + p.nombre.split(' ')[0] + '</a>';
+      return '<a href="' + p.url + '"' + (pagina === p.id ? ' aria-current="page"' : '') + '>' + (p.nav || p.nombre.split(' ')[0]) + '</a>';
     }).join('');
 
     var anuncio = document.createElement('div');
@@ -144,8 +145,16 @@
       this.setAttribute('aria-expanded', abierto ? 'true' : 'false');
     });
     $('[data-pagar]').addEventListener('click', function () {
-      if (!leerCarrito().length) return;
+      var carrito = leerCarrito();
+      if (!carrito.length) return;
       if (CFG.urlPago) { window.location.href = CFG.urlPago; return; }
+      // Carrito real de Shopify: los ids de variante son los de la tienda,
+      // así que este enlace abre el pago con los productos y cantidades exactos.
+      if (CFG.tiendaShopify) {
+        var lineas = carrito.map(function (l) { return l.id + ':' + l.cantidad; }).join(',');
+        window.location.href = CFG.tiendaShopify.replace(/\/$/, '') + '/cart/' + lineas;
+        return;
+      }
       abrirModal((CFG.avisoPagoDemo || '') + '<button class="boton" data-cerrar-modal>Seguir mirando</button>');
     });
     modal.addEventListener('click', function (e) {
@@ -174,7 +183,7 @@
     var t = $('.toast'); t.textContent = txt; t.classList.add('visible');
     clearTimeout(avisar._t); avisar._t = setTimeout(function () { t.classList.remove('visible'); }, 2200);
   }
-  window.NOMADA_AVISAR = avisar;
+  window.GINESKA_AVISAR = avisar;
 
   function pintarCarrito() {
     var c = leerCarrito();
@@ -184,21 +193,21 @@
       if (!d) return '';
       cuenta += l.cantidad; subtotal += d.v.precio * l.cantidad;
       return '<div class="linea" style="--l-bg:' + d.p.colores.fondo + '">' +
-        '<a href="' + d.p.url + '" class="linea__img"><img src="' + d.p.imagenes[0] + '" alt="' + d.p.nombre + '"></a>' +
+        '<a href="' + d.p.url + '" class="linea__img"><img src="' + (d.v.foto || d.p.imagenes[0]) + '" alt="' + d.p.nombre + '"></a>' +
         '<div class="linea__info"><a href="' + d.p.url + '"><strong>' + d.p.nombre + '</strong></a><span>' + d.v.nombre + '</span>' +
         '<div class="cantidad"><button aria-label="Quitar uno" data-menos="' + l.id + '">−</button><span>' + l.cantidad + '</span><button aria-label="Añadir uno" data-mas="' + l.id + '">+</button></div></div>' +
-        '<strong class="linea__precio">' + euros(d.v.precio * l.cantidad) + '</strong></div>';
+        '<strong class="linea__precio">' + precio(d.v.precio * l.cantidad) + '</strong></div>';
     }).join('');
     $$('[data-cuenta]').forEach(function (b) { b.textContent = cuenta; b.classList.toggle('vacia', !cuenta); });
     var lineas = $('[data-lineas]');
     if (!lineas) return;
     lineas.innerHTML = html || '<div class="cajon__vacio"><p>Tu carrito está vacío.</p><a class="boton" href="index.html#productos">Ver productos</a></div>';
-    $('[data-subtotal]').textContent = euros(subtotal);
+    $('[data-subtotal]').textContent = precio(subtotal);
     var envio = $('[data-envio]');
     if (ENVIO_GRATIS > 0) {
       var falta = ENVIO_GRATIS - subtotal;
       var pct = Math.min(100, subtotal / ENVIO_GRATIS * 100);
-      envio.innerHTML = (subtotal === 0 ? 'Envío gratis a partir de ' + euros(ENVIO_GRATIS) : falta > 0 ? 'Te faltan <strong>' + euros(falta) + '</strong> para el envío gratis' : '🎉 ¡Tienes envío gratis!') +
+      envio.innerHTML = (subtotal === 0 ? 'Envío gratis a partir de ' + precio(ENVIO_GRATIS) : falta > 0 ? 'Te faltan <strong>' + precio(falta) + '</strong> para el envío gratis' : '🎉 ¡Tienes envío gratis!') +
         '<div class="barra"><i style="transform:scaleX(' + (pct / 100) + ')"></i></div>';
     } else { envio.style.display = 'none'; }
     $('[data-pagar]').disabled = !c.length;
@@ -215,7 +224,7 @@
       (v.precioAntes ? '<span class="tarjeta__chip">-' + Math.round((1 - v.precio / v.precioAntes) * 100) + '%</span>' : '') +
       '</div>' +
       '<div class="tarjeta__info"><span class="tarjeta__cat">' + p.categoria + '</span><h3>' + p.nombre + '</h3><p>' + p.resumen + '</p>' +
-      '<div class="tarjeta__pie"><span class="tarjeta__precio">desde ' + euros(v.precio) + '</span><span class="tarjeta__ir">Ver ' + ICONOS.flecha + '</span></div></div></a>';
+      '<div class="tarjeta__pie"><span class="tarjeta__precio">desde ' + precio(v.precio) + '</span><span class="tarjeta__ir">Ver ' + ICONOS.flecha + '</span></div></div></a>';
   }
   function initGrid() {
     $$('[data-grid-productos]').forEach(function (g) {
@@ -269,9 +278,9 @@
 
     var cantidad = 1;
     function actualizar() {
-      $('[data-precio]', cont).textContent = euros(sel.precio);
-      $('[data-antes]', cont).textContent = sel.precioAntes ? euros(sel.precioAntes) : '';
-      $('[data-ahorro]', cont).textContent = sel.precioAntes ? 'Ahorras ' + euros(sel.precioAntes - sel.precio) : '';
+      $('[data-precio]', cont).textContent = precio(sel.precio);
+      $('[data-antes]', cont).textContent = sel.precioAntes ? precio(sel.precioAntes) : '';
+      $('[data-ahorro]', cont).textContent = sel.precioAntes ? 'Ahorras ' + precio(sel.precioAntes - sel.precio) : '';
       var n = $('[data-opcion-nombre]', cont); if (n) n.textContent = sel.nombre;
       $$('[data-variante]', cont).forEach(function (b) {
         var a = b.getAttribute('data-variante') === sel.id;
@@ -279,16 +288,24 @@
       });
       $$('[data-anadir]').forEach(function (b) {
         b.disabled = !sel.disponible;
-        b.textContent = sel.disponible ? (b.closest('.barra-compra') ? 'Añadir' : 'Añadir al carrito · ' + euros(sel.precio * cantidad)) : 'Agotado';
+        b.textContent = sel.disponible ? (b.closest('.barra-compra') ? 'Añadir' : 'Añadir al carrito · ' + precio(sel.precio * cantidad)) : 'Agotado';
       });
       $('[data-barra-var]').textContent = sel.nombre;
-      $('[data-barra-precio]').textContent = euros(sel.precio);
+      $('[data-barra-precio]').textContent = precio(sel.precio);
       $('[data-q-valor]', cont).textContent = cantidad;
+    }
+    // Al elegir un color/acabado, la foto grande cambia por la de esa variante
+    function pintarPrincipal(src) {
+      if (!src || !principal || principal.getAttribute('src') === src) return;
+      principal.classList.add('cambiando');
+      setTimeout(function () { principal.src = src; principal.classList.remove('cambiando'); }, 180);
+      $$('[data-mini]', cont).forEach(function (x) { x.classList.toggle('activa', x.getAttribute('data-mini') === src); });
     }
     $$('[data-variante]', cont).forEach(function (b) {
       b.addEventListener('click', function () {
         sel = p.variantes.filter(function (v) { return v.id === b.getAttribute('data-variante'); })[0];
         actualizar();
+        if (sel.foto && p.imagenes.indexOf(sel.foto) > -1) pintarPrincipal(sel.foto);
       });
     });
     $$('[data-q]', cont).forEach(function (b) {
@@ -383,6 +400,12 @@
   function initContadores() {
     var els = $$('[data-count]');
     if (!els.length) return;
+    function fijar(el) {
+      var fin = parseFloat(el.getAttribute('data-count'));
+      var dec = (el.getAttribute('data-count').split('.')[1] || '').length;
+      el.textContent = fin.toLocaleString('es-ES', { minimumFractionDigits: dec, maximumFractionDigits: dec });
+    }
+    if (reduceMotion || !('IntersectionObserver' in window)) { els.forEach(fijar); return; }
     function animar(el) {
       var fin = parseFloat(el.getAttribute('data-count'));
       var dec = (el.getAttribute('data-count').split('.')[1] || '').length;

@@ -1,16 +1,19 @@
-# Tienda Online · NÓMADA
+# Tienda Online · GINESKA
 
 🌐 **Web publicada:** https://batman1518.github.io/Tienda-Online/
+🛍️ **Tienda de Shopify:** https://w3nt1x-qy.myshopify.com
 
-Tienda de 4 productos creada con el método de la skill `tienda-shopify-v3`
-(instalada en `.claude/skills/tienda-shopify-v3/`).
+Los 8 productos (fotos, precios, variantes y descripciones) son los reales de la
+tienda de Shopify. El botón *Finalizar compra* lleva el carrito al checkout de
+esa tienda: el `id` de cada variante en el catálogo es su ID real de Shopify.
 
-- `web/index.html` — portada con todos los productos
+- `web/index.html` — portada con los 8 productos
 - `web/producto-*.html` — una página personalizada (colores, tipografía y bloques propios) por producto
-- `web/js/productos.js` — precios, variantes y fotos
-- `web/js/config.js` — marca, envío gratis, anuncios, pie, legales y URL de pago
+- `web/js/productos.js` — precios, variantes, fotos y colores
+- `web/js/config.js` — marca, moneda (USD), envío, anuncios, pie, legales y tienda de Shopify
+- `web/img/*.jpg` — fotos de los productos (1000 px)
 - `CLAUDE.md` — guía completa para seguir el proyecto con Claude Code
-- `web/ESTADO.md` — estado, decisiones de diseño y pendientes
+- `web/ESTADO.md` — estado, decisiones de diseño, costuras y pendientes
 
 Ver en local: `cd web && python3 -m http.server 8080` → http://localhost:8080
 

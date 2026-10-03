@@ -1,0 +1,78 @@
+/* Almohada Junco · verde salvia suave (Fraunces + Jost) */
+:root {
+  --bg: #f1f5f2;
+  --fg: #1d2a24;
+  --ac: #2f7d6a;
+  --ac-fg: #ffffff;
+  --card: #ffffff;
+  --line: color-mix(in srgb, #1d2a24 14%, transparent);
+  --estrellas: #e0a53c;
+  --f-body: 'Jost', system-ui, sans-serif;
+  --f-display: 'Fraunces', Georgia, serif;
+  --radius: 22px;
+}
+body { background: var(--bg); }
+h1, h2, h3 { font-weight: 600; }
+.al-muted { color: var(--muted); }
+.eyebrow { color: var(--ac); }
+.anuncio { background: var(--ac); color: #fff; }
+.pie { --pie-bg: #1d2a24; --pie-fg: #eef3f0; }
+
+/* ---------- héroe ---------- */
+.al-heroe { --pad-y: clamp(34px, 4.6vw, 74px); }
+.al-heroe__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
+.al-heroe h1 { font-size: clamp(40px, 5.6vw, 82px); line-height: 1.02; }
+.al-heroe__txt p { font-size: 17px; color: var(--muted); max-width: 46ch; }
+.al-heroe__cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 26px; }
+.al-heroe__meta { font-size: 14px; color: var(--muted); }
+.al-heroe__prod { position: relative; border-radius: var(--radius); overflow: hidden; background: #fff; }
+.al-heroe__prod img { width: 100%; }
+.al-heroe__linea { position: absolute; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; background: #fff; color: var(--ac); padding: 6px 12px; border-radius: 999px; box-shadow: 0 10px 24px -16px rgba(29, 42, 36, .9); }
+.al-heroe__linea--1 { top: 18px; right: 18px; }
+.al-heroe__linea--2 { bottom: 18px; left: 18px; }
+
+/* ---------- marquesina (costura) ---------- */
+.al-marquesina { background: var(--ac); color: #fff; padding: 15px 0; font-family: var(--f-display); font-size: clamp(18px, 2vw, 24px); }
+.al-marquesina span:nth-child(even) { font-size: .7em; align-self: center; opacity: .7; }
+
+/* ---------- apoyos ---------- */
+.al-apoyos { background: #e5ece8; }
+.al-apoyos__grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(26px, 4vw, 56px); align-items: center; }
+.al-apoyos__img { border-radius: var(--radius); overflow: hidden; }
+.al-apoyos__img img { width: 100%; }
+.al-lista { list-style: none; padding: 0; margin: 0 0 22px; }
+.al-lista li { padding: 15px 0; border-top: 1px solid var(--line); color: var(--muted); }
+.al-lista strong { display: block; color: var(--fg); margin-bottom: 4px; font-family: var(--f-display); font-size: 19px; }
+
+/* ---------- acordeón con imagen viva ---------- */
+.al-acordeon { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(24px, 4vw, 52px); align-items: center; margin-top: 36px; }
+.al-acordeon__img { border-radius: var(--radius); overflow: hidden; background: #fff; }
+.al-acordeon__img img { width: 100%; transition: opacity .25s, transform .6s var(--ease); }
+.al-acordeon__img img.cambiando { opacity: 0; transform: scale(1.02); }
+.al-item { border-top: 1px solid var(--line); }
+.al-item button { width: 100%; text-align: left; background: none; border: 0; padding: 20px 0; font-family: var(--f-display); font-size: 21px; display: flex; justify-content: space-between; align-items: center; }
+.al-item button::after { content: '+'; color: var(--ac); font-size: 24px; transition: transform .3s var(--ease); }
+.al-item.abierto button::after { transform: rotate(45deg); }
+.al-item > div { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .4s var(--ease); }
+.al-item > div > p { overflow: hidden; margin: 0; color: var(--muted); }
+.al-item.abierto > div { grid-template-rows: 1fr; }
+.al-item.abierto > div > p { padding-bottom: 20px; }
+
+/* ---------- medidas ---------- */
+.al-medidas { background: #e5ece8; }
+.al-medidas__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(26px, 4vw, 56px); align-items: center; }
+.al-medidas__img { border-radius: var(--radius); overflow: hidden; background: #fff; }
+.al-medidas__img img { width: 100%; }
+.al-tabla { width: 100%; border-collapse: collapse; margin: 22px 0 18px; font-size: 15.5px; }
+.al-tabla th, .al-tabla td { text-align: left; padding: 13px 10px; border-bottom: 1px solid var(--line); }
+.al-tabla thead th { color: var(--ac); font-family: var(--f-display); font-size: 17px; }
+.al-tabla tbody th { font-weight: 500; color: var(--muted); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 990px) {
+  .al-heroe__grid, .al-apoyos__grid, .al-acordeon, .al-medidas__grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 540px) {
+  .al-heroe__cta { flex-direction: column; align-items: flex-start; }
+  .al-tabla { font-size: 14px; }
+}

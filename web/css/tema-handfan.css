@@ -1,0 +1,85 @@
+/* Botella HandFan · azul hielo y turquesa, tipografía geométrica (Outfit) */
+:root {
+  --bg: #eaf5fc;
+  --fg: #0d3b57;
+  --ac: #1e88c7;
+  --ac-fg: #ffffff;
+  --card: #ffffff;
+  --line: color-mix(in srgb, #0d3b57 16%, transparent);
+  --estrellas: #f0a52a;
+  --f-body: 'Inter', system-ui, sans-serif;
+  --f-display: 'Outfit', 'Inter', sans-serif;
+  --radius: 20px;
+}
+body { background: var(--bg); }
+h1, h2, h3 { font-weight: 600; }
+.hf-muted { color: var(--muted); }
+.eyebrow { color: var(--ac); }
+.anuncio { background: var(--ac); color: #fff; }
+.pie { --pie-bg: #0d3b57; --pie-fg: #eaf5fc; }
+
+/* ---------- héroe en arco ---------- */
+.hf-heroe { --pad-y: clamp(34px, 4.6vw, 72px); overflow: hidden; }
+.hf-heroe__grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
+.hf-heroe h1 { font-size: clamp(36px, 5vw, 72px); line-height: 1.05; }
+.hf-heroe__txt p { font-size: 17px; color: var(--muted); max-width: 48ch; }
+.hf-heroe__cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 26px; }
+.hf-heroe__meta { font-size: 14px; color: var(--muted); }
+.hf-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 24px 0 0; }
+.hf-chips li { background: #fff; border: 1px solid color-mix(in srgb, var(--ac) 24%, transparent); border-radius: 999px; padding: 9px 18px; font-size: 14px; font-weight: 600; }
+.hf-heroe__prod { position: relative; display: grid; place-items: center; }
+.hf-arco { width: 100%; border-radius: 50% 50% 22px 22px / 38% 38% 6% 6%; overflow: hidden; background: linear-gradient(180deg, #d5ecfa, #ffffff); box-shadow: 0 40px 70px -50px rgba(13, 59, 87, .8); }
+.hf-arco img { width: 100%; display: block; }
+.hf-burbuja { position: absolute; background: #fff; color: var(--ac); font-weight: 700; font-size: 14px; padding: 10px 18px; border-radius: 999px; box-shadow: 0 18px 34px -22px rgba(13, 59, 87, .9); }
+.hf-burbuja--1 { top: 12%; left: -10px; animation: hf-flota 5s ease-in-out infinite; }
+.hf-burbuja--2 { bottom: 14%; right: -6px; animation: hf-flota 6.5s ease-in-out infinite reverse; }
+@keyframes hf-flota { 50% { transform: translateY(-9px); } }
+
+/* ---------- marquesina (costura) ---------- */
+.hf-marquesina { background: var(--ac); color: #fff; padding: 15px 0; font-family: var(--f-display); font-size: clamp(17px, 1.9vw, 23px); font-weight: 600; }
+.hf-marquesina span:nth-child(even) { font-size: .7em; align-self: center; opacity: .7; }
+
+/* ---------- despiece ---------- */
+.hf-despiece { background: #dceefa; }
+.hf-despiece__grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(26px, 4vw, 56px); align-items: center; }
+.hf-despiece__img { border-radius: var(--radius); overflow: hidden; background: #fff; }
+.hf-despiece__img img { width: 100%; }
+.hf-piezas { list-style: none; padding: 0; margin: 0; }
+.hf-piezas li { padding: 14px 0; border-top: 1px solid var(--line); color: var(--muted); }
+.hf-piezas strong { display: block; color: var(--fg); margin-bottom: 3px; }
+
+/* ---------- temperatura ---------- */
+.hf-temperatura__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(26px, 4vw, 56px); align-items: center; }
+.hf-temperatura__img { border-radius: var(--radius); overflow: hidden; background: #fff; }
+.hf-temperatura__img img { width: 100%; }
+.hf-datos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0 20px; }
+.hf-datos > div { background: #fff; border-radius: var(--radius); padding: 22px; }
+.hf-datos strong { display: block; font-family: var(--f-display); font-size: clamp(34px, 4vw, 52px); line-height: 1; color: var(--ac); }
+.hf-datos strong small { font-size: .4em; margin-left: 4px; }
+.hf-datos > div > span { display: block; margin-top: 8px; font-size: 14px; color: var(--muted); }
+
+/* ---------- premios y colores ---------- */
+.hf-premios { background: #dceefa; }
+.hf-premios__grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(26px, 4vw, 56px); align-items: center; }
+.hf-premios__img { border-radius: var(--radius); overflow: hidden; }
+.hf-premios__img img { width: 100%; }
+.hf-colores { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 26px; }
+.hf-color { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; }
+.hf-color i { width: 22px; height: 22px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 4px 10px -4px rgba(13, 59, 87, .8); }
+
+/* ---------- coche ---------- */
+.hf-coche__caja { position: relative; border-radius: var(--radius); overflow: hidden; }
+.hf-coche__caja img { width: 100%; display: block; }
+.hf-coche__txt { position: absolute; left: clamp(18px, 4vw, 48px); bottom: clamp(18px, 4vw, 44px); max-width: 44ch; background: color-mix(in srgb, #ffffff 88%, transparent); backdrop-filter: blur(8px); border-radius: var(--radius); padding: clamp(20px, 3vw, 30px); }
+.hf-coche__txt p { color: var(--muted); margin-bottom: 18px; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 990px) {
+  .hf-heroe__grid, .hf-despiece__grid, .hf-temperatura__grid, .hf-premios__grid { grid-template-columns: 1fr; }
+  .hf-arco { max-width: 460px; margin: 0 auto; }
+  .hf-coche__txt { position: static; background: #fff; max-width: none; border-radius: 0; }
+}
+@media (max-width: 540px) {
+  .hf-heroe__cta { flex-direction: column; align-items: flex-start; }
+  .hf-datos { grid-template-columns: 1fr; }
+}

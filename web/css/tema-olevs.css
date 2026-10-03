@@ -1,0 +1,68 @@
+/* Reloj OLEVS · noche y oro, tipografía de relojería (Bodoni Moda) */
+:root {
+  --bg: #0b0e13;
+  --fg: #f2f4f8;
+  --ac: #cf9c47;
+  --ac-fg: #14100a;
+  --card: color-mix(in srgb, #cf9c47 8%, #0b0e13);
+  --line: color-mix(in srgb, #f2f4f8 16%, transparent);
+  --estrellas: #e8bf6a;
+  --f-body: 'Inter', system-ui, sans-serif;
+  --f-display: 'Bodoni Moda', 'Times New Roman', serif;
+  --radius: 18px;
+}
+body { background: var(--bg); }
+.ol-muted { color: var(--muted); }
+.eyebrow { color: var(--ac); }
+.anuncio { background: var(--ac); color: #14100a; }
+.anuncio__pista span::before { color: #14100a; }
+.pie { --pie-bg: #06080b; --pie-fg: #dfe3ea; }
+
+/* ---------- héroe con diagonal ---------- */
+.ol-heroe { --pad-y: clamp(30px, 4vw, 64px); overflow: hidden; }
+.ol-heroe__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
+.ol-heroe h1 { font-size: clamp(38px, 5.4vw, 76px); line-height: 1.04; letter-spacing: -0.01em; }
+.ol-heroe__txt p { color: var(--muted); font-size: 17px; max-width: 46ch; }
+.ol-heroe__cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 26px; }
+.ol-heroe__meta { font-size: 14px; color: var(--muted); }
+.ol-heroe__foto { position: relative; clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%); }
+.ol-heroe__foto img { width: 100%; border-radius: 4px; }
+
+/* ---------- marquesina (costura) ---------- */
+.ol-marquesina { background: var(--ac); color: #14100a; padding: 15px 0; font-family: var(--f-display); font-size: clamp(17px, 1.9vw, 23px); }
+.ol-marquesina span:nth-child(even) { font-size: .68em; align-self: center; opacity: .7; }
+
+/* ---------- acabados ---------- */
+.ol-acabados { background: #10141b; }
+.ol-acabados__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.ol-acabados figure { margin: 0; border-radius: var(--radius); overflow: hidden; background: #05070a; }
+.ol-acabados img { width: 100%; transition: transform .8s var(--ease); }
+.ol-acabados figure:hover img { transform: scale(1.05); }
+.ol-acabados figcaption { padding: 14px 16px; font-size: 14px; letter-spacing: .1em; text-transform: uppercase; color: var(--ac); }
+
+/* ---------- macro ---------- */
+.ol-macro__grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(26px, 4vw, 56px); align-items: center; }
+.ol-macro__img { border-radius: var(--radius); overflow: hidden; }
+.ol-macro__img img { width: 100%; }
+.ol-lista { list-style: none; padding: 0; margin: 0 0 24px; }
+.ol-lista li { padding: 12px 0 12px 28px; border-bottom: 1px solid var(--line); position: relative; }
+.ol-lista li::before { content: '—'; position: absolute; left: 0; color: var(--ac); }
+
+/* ---------- ficha técnica ---------- */
+.ol-specs-sec { background: #10141b; }
+.ol-specs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); margin: 34px 0 0; border: 1px solid var(--line); }
+.ol-specs > div { background: #0b0e13; padding: 22px 20px; }
+.ol-specs dt { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--ac); margin-bottom: 8px; }
+.ol-specs dd { margin: 0; font-size: 19px; font-family: var(--f-display); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 990px) {
+  .ol-heroe__grid, .ol-macro__grid { grid-template-columns: 1fr; }
+  .ol-heroe__foto { clip-path: none; }
+  .ol-acabados__grid { grid-template-columns: repeat(2, 1fr); }
+  .ol-specs { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .ol-heroe__cta { flex-direction: column; align-items: flex-start; }
+  .ol-specs { grid-template-columns: 1fr; }
+}
