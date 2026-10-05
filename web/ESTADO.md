@@ -16,7 +16,6 @@ precios, variantes y descripciones:
 | Qué | Dónde queda |
 |---|---|
 | Nombres, precios, variantes, fotos | `web/js/productos.js` (única fuente de verdad) |
-| Datos originales de Shopify (descripciones largas) | `web/js/catalogo-importado.json` (solo referencia; sus rutas `web/img/tienda/…` ya no existen) |
 | Fotos usadas por la web | `web/img/<id>-N.jpg` (1000 px, JPEG calidad 80) |
 | Moneda y formato | `web/js/config.js` → `idioma: 'es-ES'`, `moneda: 'USD'` → `12,97 US$` |
 
@@ -38,7 +37,7 @@ sistema de pago, se cambia `urlPago` en `config.js`.
 | Botella HandFan 40 oz `producto-handfan.html` | #eaf5fc | #1e88c7 | Outfit + Inter | 25,00 US$ |
 | Bolsa Reflectante Urban `producto-urban.html` | #14181d | #ff7a1a | Bebas Neue + Archivo | 8,50 US$ |
 | Estrella NFC `producto-estrella.html` | #f7f5fb | #7b5cff | Baloo 2 + Inter | 2,19 US$ |
-| Almohada Junco `producto-almohada.html` | #f1f5f2 | #2f7d6a | Fraunces + Jost | 9,51 US$ |
+| Almohada Anjuny `producto-almohada.html` | #f1f5f2 | #2f7d6a | Fraunces + Jost | 9,51 US$ |
 
 Cada producto tiene **su propia página, su paleta y su prefijo de clases**
 (`pe-` pendientes, `ol-` olevs, `vo-` vormor, `pw-` power, `hf-` handfan,
@@ -98,26 +97,41 @@ manteniendo el nombre.
 
 ## Verificación hecha
 
+Repasada de nuevo el 2026-10-05 con un banco de pruebas propio:
+
 - `node --check` en los tres archivos JS ✅
-- Prueba de humo con jsdom en las 9 páginas: cabecera, pie, anuncio, carrito,
-  8 tarjetas en la portada, 7 relacionadas en cada ficha, precio en US$ con dos
-  decimales, variantes que cambian precio y foto, sin errores de consola ✅
-- 122 recursos (CSS, JS, fotos, páginas) servidos por HTTP sin fallos ✅
-- Carrito: añadir → se abre el cajón, cuenta, subtotal, persistencia entre
-  páginas y enlace de pago a Shopify con los IDs reales ✅
+- jsdom sobre las **9 páginas**: cabecera, pie, barra de anuncios, carrito, aviso
+  y modal inyectados; menú con 9 enlaces; pie con los 8 productos; ninguna
+  imagen, hoja o script que falte; sin errores de consola ✅
+- Portada: 8 tarjetas con su precio en US$ y 8 paneles de "mundos" ✅
+- Cada ficha: título, nº de variantes, nº de miniaturas, precio con dos
+  decimales, cambio de variante (precio **y foto del color**), añadido al
+  carrito con el ID de Shopify y 7 productos relacionados ✅
+- 28 variantes, todas con ID numérico real, sin repetidos ✅
+- **Checkout verificado contra la tienda real**: el carrito monta
+  `…/cart/<id>:<cantidad>` y Shopify lo abre con los productos correctos ✅
+- Comprobación de estilos: ninguna clase del HTML se queda sin CSS, todos los
+  temas tienen sus puntos de ruptura (990/540 px) y no hay anchos fijos que
+  provoquen scroll horizontal ✅
 - **Pendiente:** la revisión a ojo en navegador a 1600×900 y 390×844 (el entorno
-  del agente no tiene navegador). Hazla sobre la vista previa.
+  del agente no tiene navegador ni puede descargar uno). Hazla sobre la vista
+  previa.
 
 ## Pendientes
 
 - [ ] Revisar en navegador (escritorio y móvil) y ajustar lo que chirríe.
 - [ ] **Reseñas reales**: ahora hay 3 por página marcadas con «Reseñas de ejemplo».
-- [ ] Confirmar políticas: envío gratis y 30 días de garantía ya están puestos;
-      falta decidir si hay devoluciones y qué correo/horario de atención se publica.
+- [ ] Confirmar el correo de contacto: se dejó `contacto@gineska.com` porque el
+      que se indicó (con dos @) no es válido. Falta decidir devoluciones y horario.
+- [ ] Confirma que el checkout de Shopify está fuera del modo de prueba
+      (sandbox) antes de vender de verdad.
 - [ ] Fotos que faltan: HandFan negro y varios colores del power bank y la
       almohada (esos acabados no tienen foto propia).
 - [ ] El nombre de la marca en la web es **GINESKA**; la tienda de Shopify sigue
       llamándose «Mi tienda» (renombrarla ahí si se quiere que coincida).
+- [ ] Repasar los textos promocionales del proveedor que se han mantenido en las
+      páginas (premio de la botella HandFan, autonomía de 20 días del power bank,
+      transcripción con IA de la grabadora): son los datos que da el fabricante.
 - [ ] Banner 16:9 de portada con varios productos, si se quiere sustituir el mosaico.
 - [ ] Si se quiere pasar a Shopify de verdad: migrar cada `section.bloque` a un
       `mt-*.liquid` (fases 0-2 y 4-6 de la skill).

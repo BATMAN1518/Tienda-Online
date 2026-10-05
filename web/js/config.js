@@ -26,7 +26,7 @@ window.GINESKA_CONFIG = {
     { icono: 'candado', texto: 'Pago seguro' }
   ],
 
-  contacto: { email: 'contacto@gineska@gmail.com', horario: 'Te respondemos por correo' },
+  contacto: { email: 'contacto@gineska.com', horario: 'Te respondemos por correo' },
   metodosPago: 'Shopify Payments · Visa · Mastercard · Apple Pay · PayPal',
 
   // Tu tienda de Shopify: los productos, los precios y las fotos salen de aquí.

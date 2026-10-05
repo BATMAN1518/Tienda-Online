@@ -48,10 +48,11 @@ web/
   producto-handfan.html    ← botella HandFan 40 oz (azul hielo)
   producto-urban.html      ← bolsa reflectante Urban (asfalto + naranja)
   producto-estrella.html   ← varita NFC (lila)
-  producto-almohada.html   ← almohada cervical Junco (verde salvia)
+  producto-almohada.html   ← almohada cervical Anjuny (verde salvia)
+  js/*.js                  ← config (marca y tienda), productos (catálogo) y app (lógica)
+  css/*.css                ← base + un tema por página
   js/config.js             ← MARCA: nombre, moneda, envío, anuncios, pie, legales, tienda Shopify
   js/productos.js          ← CATÁLOGO: precios, variantes (IDs de Shopify), fotos, colores, valoraciones
-  js/catalogo-importado.json ← datos originales de la importación (solo referencia)
   js/app.js                ← lógica común (cabecera, pie, carrito, compra, efectos)
   css/base.css             ← estructura común; la "piel" llega por variables CSS
   css/tema-*.css           ← un archivo por página: variables :root + bloques propios
@@ -105,11 +106,12 @@ web/
 ## Añadir o actualizar productos
 
 1. **Si cambia el catálogo en Shopify**, hay que volver a importarlo: pide al
-   usuario el enlace de la tienda y ejecuta una importación como la que se hizo
-   (un script que lee `products.json` y descarga las fotos de `cdn.shopify.com`).
-   Desde el entorno del agente, `cdn.shopify.com` está bloqueado: la vía que
-   funcionó fue un **workflow temporal de GitHub Actions** que descargaba los
-   datos y las fotos y los dejaba en el repositorio. Borra ese workflow al acabar.
+   usuario el enlace de la tienda, lee `https://<tienda>/products.json` (incluye
+   precios, variantes con su `id`, fotos y descripciones) y descarga las fotos de
+   `cdn.shopify.com`. Ojo: desde el entorno del agente `cdn.shopify.com` está
+   bloqueado, así que la vía que funcionó fue un **workflow temporal de GitHub
+   Actions** que descargaba los datos y las fotos y los dejaba en el repositorio.
+   Borra ese workflow (y sus scripts) cuando el catálogo ya esté en `productos.js`.
 2. Añade el producto a `web/js/productos.js` (copia uno existente; `id` único,
    `url` a su página, y en cada variante el `id` real de Shopify).
 3. Copia la página de producto que más se parezca → `web/producto-<id>.html`;
@@ -139,6 +141,10 @@ Checklist antes de dar algo por terminado:
 
 ## Publicación
 
+**La web pública solo se actualiza cuando los cambios llegan a `main`.** Los
+agentes trabajan en ramas `arena/…` y abren un pull request; el usuario lo
+fusiona. Hasta entonces, la rama se puede ver con `python3 -m http.server`.
+
 GitHub Pages sirve la **raíz** del repositorio desde la rama `main`
 (Settings → Pages → Deploy from a branch → `main` / `(root)`). La raíz tiene
 `index.html` (redirige a `web/`) y `.nojekyll`. Cada `git push` a `main` se
@@ -149,8 +155,10 @@ publica solo en ~1 minuto en:
 
 1. **Reseñas reales**: la web muestra 3 reseñas de ejemplo por página, marcadas
    como tales. Sustitúyelas cuando haya opiniones de verdad (no inventes más).
-2. **Políticas**: falta confirmar devoluciones y el horario de atención; el
-   correo es `contacto@gineska@gmail.com`.
+2. **Políticas**: envío gratis y 30 días de garantía ya están en la web; falta
+   confirmar si hay devoluciones y el horario de atención. El correo que hay es
+   `contacto@gineska.com` (el usuario escribió uno con dos @; conviene que
+   confirme la dirección real).
 3. **Fotos que faltan**: HandFan negro, colores del power bank y de la almohada
    sin foto propia (esos acabados no cambian la imagen al elegirlos).
 4. **Banner 16:9 de portada** con varios productos juntos, si se prefiere al mosaico.

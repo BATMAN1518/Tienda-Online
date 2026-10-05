@@ -146,7 +146,7 @@ window.GINESKA_PRODUCTOS = [
   {
     id: 'almohada',
     nav: 'Almohada',
-    nombre: 'Almohada Junco',
+    nombre: 'Almohada Anjuny',
     categoria: 'Descanso',
     lema: 'La forma de una noche entera',
     resumen: 'Almohada cervical de espuma viscoelástica con forma de mariposa, hueco central para el cuello y funda transpirable. Se enrolla y viaja contigo.',
