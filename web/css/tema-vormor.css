@@ -1,0 +1,81 @@
+/* Grabadora VORMOR · tinta azulada y azul eléctrico (Space Grotesk) */
+:root {
+  --bg: #0f1419;
+  --fg: #eef2f6;
+  --ac: #4f7cff;
+  --ac-fg: #ffffff;
+  --card: color-mix(in srgb, #4f7cff 9%, #0f1419);
+  --line: color-mix(in srgb, #eef2f6 15%, transparent);
+  --estrellas: #7aa2ff;
+  --f-body: 'Inter', system-ui, sans-serif;
+  --f-display: 'Space Grotesk', 'Inter', sans-serif;
+  --radius: 16px;
+}
+body { background: var(--bg); }
+h1, h2, h3 { font-weight: 600; }
+.eyebrow { color: var(--ac); }
+.anuncio { background: #4f7cff; color: #0b0f14; }
+.anuncio__pista span::before { color: #0b0f14; }
+.pie { --pie-bg: #090d12; --pie-fg: #e3e9f2; }
+
+/* ---------- héroe ---------- */
+.vo-heroe { --pad-y: clamp(36px, 5vw, 80px); position: relative; overflow: hidden; }
+.vo-heroe::before { content: ''; position: absolute; inset: 0; background: radial-gradient(720px circle at var(--mx, 62%) var(--my, 40%), color-mix(in srgb, var(--ac) 26%, transparent), transparent 62%); pointer-events: none; }
+.vo-heroe__grid { position: relative; display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
+.vo-heroe h1 { font-size: clamp(34px, 4.6vw, 66px); line-height: 1.06; }
+.vo-heroe__txt p { font-size: 17px; color: var(--muted); max-width: 48ch; }
+.vo-type { font-family: var(--f-display); font-size: 19px; }
+.vo-type span { color: var(--ac); border-bottom: 2px solid color-mix(in srgb, var(--ac) 55%, transparent); }
+.cursor { display: inline-block; width: 2px; height: 1.05em; background: var(--ac); vertical-align: -0.15em; margin-left: 3px; animation: vo-parpadeo 1s steps(2) infinite; }
+@keyframes vo-parpadeo { 50% { opacity: 0; } }
+.vo-heroe__cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 26px; }
+.vo-heroe__meta { font-size: 14px; color: var(--muted); }
+.vo-heroe__prod { border-radius: var(--radius); overflow: hidden; box-shadow: 0 40px 80px -50px #000; }
+.vo-heroe__prod img { width: 100%; }
+
+/* ---------- marquesina (costura) ---------- */
+.vo-marquesina { background: var(--ac); color: #fff; padding: 15px 0; font-family: var(--f-display); font-size: clamp(17px, 1.9vw, 23px); font-weight: 600; }
+.vo-marquesina span:nth-child(even) { font-size: .7em; align-self: center; opacity: .75; }
+
+/* ---------- pasos en bandas ---------- */
+.vo-pasos { background: #121821; }
+.vo-banda { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 60px); align-items: center; padding: 34px 0; }
+.vo-banda + .vo-banda { border-top: 1px solid var(--line); }
+.vo-banda--inversa .vo-banda__img { order: 2; }
+.vo-banda__img { border-radius: var(--radius); overflow: hidden; background: #0b1017; }
+.vo-banda__img img { width: 100%; }
+.vo-banda__txt h3 { font-size: clamp(26px, 3vw, 38px); margin: 8px 0 10px; }
+.vo-banda__txt p { color: var(--muted); margin: 0; max-width: 46ch; }
+.vo-num { font-family: var(--f-display); font-size: 15px; letter-spacing: .2em; color: var(--ac); }
+
+/* ---------- bento ---------- */
+.vo-bento { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 36px; }
+.vo-bento__grande { grid-column: span 2; grid-row: span 2; background: linear-gradient(150deg, color-mix(in srgb, var(--ac) 24%, #0f1419), #0f1419); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; }
+.vo-bento__grande p { color: var(--muted); margin-bottom: 22px; }
+.vo-bento__mini { background: #121821; border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+.vo-bento__mini p { margin: 8px 0 0; color: var(--muted); font-size: 14.5px; }
+.vo-bento__num { font-family: var(--f-display); font-size: clamp(38px, 4.4vw, 58px); line-height: 1; display: block; }
+.vo-bento__num small { font-size: .38em; margin-left: 6px; color: var(--ac); }
+.vo-barra { height: 8px; border-radius: 9px; background: var(--line); overflow: hidden; }
+.vo-barra i { display: block; height: 100%; width: 86%; background: var(--ac); }
+
+/* ---------- escenarios ---------- */
+.vo-escenas__grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(26px, 4vw, 56px); align-items: center; }
+.vo-escenas__img { border-radius: var(--radius); overflow: hidden; }
+.vo-escenas__img img { width: 100%; }
+.vo-uso { list-style: none; padding: 0; margin: 0 0 26px; }
+.vo-uso li { padding: 14px 0; border-top: 1px solid var(--line); color: var(--muted); }
+.vo-uso strong { color: var(--fg); display: inline-block; min-width: 108px; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 990px) {
+  .vo-heroe__grid, .vo-escenas__grid, .vo-banda { grid-template-columns: 1fr; }
+  .vo-banda--inversa .vo-banda__img { order: 0; }
+  .vo-bento { grid-template-columns: repeat(2, 1fr); }
+  .vo-bento__grande { grid-column: span 2; grid-row: auto; }
+}
+@media (max-width: 540px) {
+  .vo-heroe__cta { flex-direction: column; align-items: flex-start; }
+  .vo-bento { grid-template-columns: 1fr; }
+  .vo-bento__grande { grid-column: span 1; }
+}

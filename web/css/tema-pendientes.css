@@ -1,0 +1,90 @@
+/* Pendientes TWS · crema cálida + naranja, tipografía redonda (Bricolage) */
+:root {
+  --bg: #fff6ee;
+  --fg: #2a1d15;
+  --ac: #e8703a;
+  --ac-fg: #ffffff;
+  --card: #ffffff;
+  --estrellas: #f0a52a;
+  --f-body: 'Inter', system-ui, sans-serif;
+  --f-display: 'Bricolage Grotesque', 'Inter', sans-serif;
+  --radius: 20px;
+}
+body { background: var(--bg); }
+h1, h2, h3 { font-weight: 700; }
+.pe-muted { color: var(--muted); }
+.eyebrow { color: var(--ac); }
+.anuncio__pista span::before { color: var(--ac); }
+.pie { --pie-bg: #2a1d15; --pie-fg: #fff6ee; }
+
+/* ---------- héroe ---------- */
+.pe-heroe { --pad-y: clamp(36px, 5vw, 76px); overflow: hidden; display: block; }
+.pe-heroe__grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
+.pe-heroe h1 { font-size: clamp(44px, 6vw, 88px); line-height: 1; }
+.pe-heroe__txt p { font-size: 17.5px; color: var(--muted); max-width: 46ch; }
+.pe-heroe__cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 28px; }
+.pe-heroe__meta { font-size: 14px; color: var(--muted); }
+.pe-heroe__prod { position: relative; display: grid; place-items: center; }
+.pe-heroe__prod::before { content: ''; position: absolute; width: 78%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, color-mix(in srgb, var(--ac) 22%, transparent) 0%, transparent 68%); }
+.pe-flota { position: relative; border-radius: 26px; overflow: hidden; transform-style: preserve-3d; transition: transform .35s var(--ease); }
+.pe-flota img { width: 100%; display: block; }
+.pe-brillo { position: absolute; inset: 0; background: radial-gradient(240px circle at var(--gx, 50%) var(--gy, 40%), rgba(255,255,255,.55), transparent 62%); opacity: .55; pointer-events: none; }
+.pe-sombra { position: absolute; bottom: -14px; width: 55%; height: 26px; border-radius: 50%; background: color-mix(in srgb, var(--fg) 20%, transparent); filter: blur(14px); }
+
+/* ---------- marquesina (costura) ---------- */
+.pe-marquesina { background: var(--ac); color: #fff; padding: 16px 0; font-family: var(--f-display); font-size: clamp(18px, 2vw, 24px); font-weight: 700; }
+.pe-marquesina span:nth-child(even) { color: #ffd9c2; font-size: .7em; align-self: center; }
+
+/* ---------- chips ---------- */
+.pe-chips-sec { background: #fdeade; }
+.pe-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 34px; }
+.pe-chips span { background: #fff; border: 1px solid color-mix(in srgb, var(--ac) 22%, transparent); border-radius: 999px; padding: 12px 22px; font-weight: 600; font-size: 15px; box-shadow: 0 12px 26px -20px rgba(42,29,21,.6); }
+.pe-chip--g { background: var(--ac) !important; color: #fff; border-color: transparent !important; }
+.pe-chips span:nth-child(3n) { transform: rotate(-1.2deg); }
+.pe-chips span:nth-child(4n) { transform: rotate(1.2deg); }
+
+/* ---------- banda del estuche ---------- */
+.pe-bolso__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(26px, 4vw, 60px); align-items: center; }
+.pe-bolso__img { border-radius: var(--radius); overflow: hidden; background: #fdeade; }
+.pe-bolso__img img { width: 100%; }
+.pe-lista { list-style: none; padding: 0; margin: 0 0 26px; }
+.pe-lista li { padding: 12px 0 12px 30px; border-bottom: 1px solid var(--line); position: relative; }
+.pe-lista li::before { content: '✦'; position: absolute; left: 0; color: var(--ac); }
+
+/* ---------- hotspots ---------- */
+.pe-puntos-sec { background: #fdeade; }
+.pe-puntos__grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(26px, 4vw, 56px); align-items: center; }
+.pe-puntos__img { position: relative; border-radius: var(--radius); overflow: visible; }
+.pe-puntos__img > img { border-radius: var(--radius); width: 100%; }
+.punto { position: absolute; width: 30px; height: 30px; border-radius: 50%; border: 0; background: var(--ac); color: #fff; transform: translate(-50%, -50%); box-shadow: 0 0 0 0 color-mix(in srgb, var(--ac) 60%, transparent); animation: pe-latido 2.4s infinite; }
+.punto::before { content: ''; position: absolute; inset: 9px; border-radius: 50%; background: #fff; }
+.punto__card { position: absolute; bottom: 130%; left: 50%; transform: translate(-50%, 8px); width: 230px; background: #fff; color: var(--fg); border-radius: 14px; padding: 14px 16px; font-size: 13.5px; line-height: 1.5; box-shadow: 0 24px 50px -24px rgba(42,29,21,.7); opacity: 0; pointer-events: none; transition: opacity .3s, transform .3s var(--ease); text-align: left; }
+.punto__card strong { display: block; margin-bottom: 4px; font-size: 14.5px; }
+.punto__card--izq { left: auto; right: -10px; transform: translate(0, 8px); }
+.punto.abierto .punto__card { opacity: 1; transform: translate(-50%, 0); }
+.punto.abierto .punto__card--izq { transform: translate(0, 0); }
+@keyframes pe-latido { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--ac) 55%, transparent); } 70% { box-shadow: 0 0 0 18px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+
+/* ---------- escena ---------- */
+.pe-escena__grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(26px, 4vw, 56px); align-items: center; }
+.pe-escena__img { border-radius: var(--radius); overflow: hidden; }
+.pe-escena__img img { width: 100%; }
+
+/* ---------- colores ---------- */
+.pe-colores-sec { background: #fdeade; }
+.pe-colores { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 34px; }
+.pe-colores a { text-decoration: none; text-align: center; font-weight: 600; }
+.pe-colores img { border-radius: 18px; background: #fff; margin-bottom: 10px; transition: transform .5s var(--ease); }
+.pe-colores a:hover img { transform: translateY(-6px); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 990px) {
+  .pe-heroe__grid, .pe-bolso__grid, .pe-puntos__grid, .pe-escena__grid { grid-template-columns: 1fr; }
+  .pe-colores { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .pe-heroe__cta { flex-direction: column; align-items: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .punto { animation: none; }
+}

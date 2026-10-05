@@ -1,5 +1,5 @@
 /* ==========================================================================
-   NÓMADA · Estilos compartidos
+   GINESKA · Estilos compartidos
    Cada página define SUS colores y fuentes en :root (ver css/tema-*.css).
    Aquí solo hay estructura; la "piel" viene de las variables.
    Regla de la skill: el fondo y el padding de cada bloque viven JUNTOS en el
@@ -93,7 +93,7 @@ p { margin: 0 0 1em; }
 .tarjeta__info { padding: 20px 20px 22px; display: flex; flex-direction: column; flex: 1; }
 .tarjeta__cat { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--t-ac); font-weight: 700; }
 .tarjeta h3 { font-size: 21px; margin: 6px 0 6px; font-family: var(--f-display); }
-.tarjeta p { font-size: 14px; opacity: .72; margin-bottom: 18px; }
+.tarjeta p { font-size: 14px; opacity: .72; margin-bottom: 18px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .tarjeta__pie { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
 .tarjeta__precio { font-weight: 700; }
 .tarjeta__ir { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--t-ac); }
@@ -169,6 +169,10 @@ p { margin: 0 0 1em; }
 .cabecera-seccion { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 44px; flex-wrap: wrap; }
 .cabecera-seccion p { color: var(--muted); max-width: 44ch; margin: 0; }
 
+/* aviso de contenido de ejemplo (reseñas de demostración) */
+.nota-demo { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; line-height: 1.4; padding: 9px 16px; border-radius: 99px; background: var(--card); border: 1px dashed var(--line); color: var(--muted); margin-bottom: 22px; max-width: 100%; }
+.nota-demo strong { color: var(--fg); }
+
 /* ---------- marquesina genérica ---------- */
 .marquesina { overflow: hidden; white-space: nowrap; }
 .marquesina__pista { display: inline-flex; gap: 48px; padding-right: 48px; animation: desliza var(--vel, 30s) linear infinite; }
@@ -228,6 +232,13 @@ p { margin: 0 0 1em; }
 .rv.visible { opacity: 1; transform: none; }
 
 /* ---------- responsive ---------- */
+/* entre 990 y 1180 px el menú con 8 productos necesita menos aire */
+@media (max-width: 1180px) and (min-width: 991px) {
+  .cabecera__fila { gap: 16px; }
+  .cabecera__nav { gap: 15px; }
+  .cabecera__nav a { font-size: 13.5px; }
+  .logo { font-size: 20px; }
+}
 @media (max-width: 990px) {
   .rejilla { grid-template-columns: repeat(2, 1fr); }
   .rejilla--3 { grid-template-columns: repeat(3, minmax(240px, 1fr)); overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
